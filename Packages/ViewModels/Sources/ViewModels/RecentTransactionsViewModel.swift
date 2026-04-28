@@ -7,16 +7,12 @@
 
 import Observation
 
-public enum ExpensePeriod: String, CaseIterable, Identifiable {
-	case daily = "Daily"
-	case weekly = "Weekly"
-	case monthly = "Monthly"
-	public var id: String { rawValue }
-}
-
 @Observable
 public final class RecentTransactionsViewModel {
 	public var selectedDuration = ExpensePeriod.daily
+	public var emptyState: EmtpyState {
+		EmtpyState(message: "No recent transactions", actionTitle: "Add transactions")
+	}
 
 	public init() { }
 }
