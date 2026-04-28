@@ -1,8 +1,11 @@
 import Testing
 @testable import ViewModels
 
-@Test func example() async throws {
-    // Write your test here and use APIs like `#expect(...)` to check expected conditions.
-    // Swift Testing Documentation
-    // https://developer.apple.com/documentation/testing
+@Suite("Recent Tranctions View Model Tests")
+struct RecentTranctionsViewModel {
+	private let vm = RecentTransactionsViewModel()
+
+	@Test func `start with daily transation`() async throws {
+		#expect(vm.selectedDuration == .daily)
+	}
 }

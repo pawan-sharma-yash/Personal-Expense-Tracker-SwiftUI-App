@@ -15,7 +15,7 @@ struct RecentTransactionsView: View {
 		NavigationStack {
 			ScrollView {
 				VStack {
-					Picker("Options", selection: $viewModel.selection) {
+					Picker("Options", selection: $viewModel.selectedDuration) {
 						ForEach(ExpensePeriod.allCases) { opt in
 							Text(opt.rawValue).tag(opt)
 						}
@@ -23,7 +23,7 @@ struct RecentTransactionsView: View {
 					.pickerStyle(.segmented)
 					
 					// Use selection
-					Text("Selected: \(viewModel.selection.rawValue)")
+					Text("Selected: \(viewModel.selectedDuration.rawValue)")
 						.font(.headline)
 				}
 			}
