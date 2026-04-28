@@ -17,4 +17,6 @@ public enum ExpensePeriod: String, CaseIterable, Identifiable {
 @Observable
 public final class RecentTransactionsViewModel {
 	public var selection = ExpensePeriod.daily
+
+	public init() { }
 }
