@@ -7,14 +7,14 @@
 
 import Observation
 
-enum ExpensePeriod: String, CaseIterable, Identifiable {
+public enum ExpensePeriod: String, CaseIterable, Identifiable {
 	case daily = "Daily"
 	case weekly = "Weekly"
 	case monthly = "Monthly"
-	var id: String { rawValue }
+	public var id: String { rawValue }
 }
 
 @Observable
-final class RecentTransactionsViewModel {
-	var selection = ExpensePeriod.daily
+public final class RecentTransactionsViewModel {
+	public var selection = ExpensePeriod.daily
 }
