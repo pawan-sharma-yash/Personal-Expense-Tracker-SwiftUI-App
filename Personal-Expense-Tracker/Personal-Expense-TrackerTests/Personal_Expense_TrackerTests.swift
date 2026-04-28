@@ -6,7 +6,6 @@
 //
 
 import Testing
-@testable import Personal_Expense_Tracker
 
 struct Personal_Expense_TrackerTests {
 

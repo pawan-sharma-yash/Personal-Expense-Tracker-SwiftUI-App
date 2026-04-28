@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ViewModels
 
 struct RecentTransactionsView: View {
 	@State private var viewModel = RecentTransactionsViewModel()
