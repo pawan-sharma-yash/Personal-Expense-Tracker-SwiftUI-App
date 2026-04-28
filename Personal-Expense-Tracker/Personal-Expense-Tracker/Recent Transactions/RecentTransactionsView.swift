@@ -13,20 +13,22 @@ struct RecentTransactionsView: View {
 
 	var body: some View {
 		NavigationStack {
-			ScrollView {
-				VStack {
-					Picker("Options", selection: $viewModel.selectedDuration) {
-						ForEach(ExpensePeriod.allCases) { opt in
-							Text(opt.rawValue).tag(opt)
-						}
+			VStack {
+				Picker("Options", selection: $viewModel.selectedDuration) {
+					ForEach(ExpensePeriod.allCases) { opt in
+						Text(opt.rawValue).tag(opt)
 					}
-					.pickerStyle(.segmented)
-					
-					// Use selection
-					Text("Selected: \(viewModel.selectedDuration.rawValue)")
-						.font(.headline)
 				}
+				.pickerStyle(.segmented)
+				Spacer()
+				Text(viewModel.emptyState.message)
+					.padding([.bottom], 12)
+				Button(viewModel.emptyState.actionTitle) {
+					print("ha ha ha")
+				}
+				Spacer()
 			}
+			.padding()
 		}
 	}
 }
