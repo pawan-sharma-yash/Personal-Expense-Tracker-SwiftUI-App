@@ -9,21 +9,21 @@ import SwiftUI
 import ViewModels
 
 struct RecentTransactionsView: View {
-	@State private var viewModel = RecentTransactionsViewModel()
+	@State private var recentTransactionsViewModel = RecentTransactionsViewModel()
 
 	var body: some View {
 		NavigationStack {
 			VStack {
-				Picker("Options", selection: $viewModel.selectedDuration) {
+				Picker("Options", selection: $recentTransactionsViewModel.selectedDuration) {
 					ForEach(ExpensePeriod.allCases) { opt in
 						Text(opt.rawValue).tag(opt)
 					}
 				}
 				.pickerStyle(.segmented)
 				Spacer()
-				Text(viewModel.emptyState.message)
+				Text(recentTransactionsViewModel.emptyState.message)
 					.padding([.bottom], 12)
-				Button(viewModel.emptyState.actionTitle) {
+				Button(recentTransactionsViewModel.emptyState.actionTitle) {
 					print("ha ha ha")
 				}
 				Spacer()
