@@ -22,10 +22,16 @@ struct RecentTransactionsView: View {
 				.pickerStyle(.segmented)
 				Spacer()
 				Text(recentTransactionsViewModel.emptyState.message)
-					.padding([.bottom], 12)
 				Button(recentTransactionsViewModel.emptyState.actionTitle) {
-					print("ha ha ha")
+					print("Add transaction clicked")
 				}
+				.frame(height: 40)
+				.padding([.leading, .trailing], 12)
+				.overlay(
+					RoundedRectangle(cornerRadius: 8)
+						.stroke(Color.green, lineWidth: 2)  // border color & width
+				)
+				.padding([.top], 12)
 				Spacer()
 			}
 			.padding()

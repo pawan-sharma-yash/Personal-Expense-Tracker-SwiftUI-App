@@ -12,7 +12,7 @@ fileprivate extension UISegmentedControl {
 	static func _customAppearance() {
 		// Customize the segmented control appearance
 		UISegmentedControl.appearance().backgroundColor = .systemGray6
-		UISegmentedControl.appearance().selectedSegmentTintColor = .systemGreen
+		UISegmentedControl.appearance().selectedSegmentTintColor = .systemCyan
 
 		// Set font for normal state
 		UISegmentedControl.appearance()
