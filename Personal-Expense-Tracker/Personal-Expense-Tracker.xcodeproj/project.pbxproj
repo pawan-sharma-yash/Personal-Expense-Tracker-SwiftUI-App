@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		87A766F62FA080DA009765A6 /* ViewModels in Frameworks */ = {isa = PBXBuildFile; productRef = 87A766F52FA080DA009765A6 /* ViewModels */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		87A7663F2F9F86C5009765A6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -21,16 +25,6 @@
 		87A7663E2F9F86C5009765A6 /* Personal-Expense-TrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Personal-Expense-TrackerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		87A766D22FA07DEA009765A6 /* Exceptions for "Personal-Expense-TrackerTests" folder in "Personal-Expense-TrackerTests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				ViewModels,
-			);
-			target = 87A7663D2F9F86C5009765A6 /* Personal-Expense-TrackerTests */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		87A766332F9F86C3009765A6 /* Personal-Expense-Tracker */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
@@ -39,9 +33,6 @@
 		};
 		87A766412F9F86C5009765A6 /* Personal-Expense-TrackerTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				87A766D22FA07DEA009765A6 /* Exceptions for "Personal-Expense-TrackerTests" folder in "Personal-Expense-TrackerTests" target */,
-			);
 			path = "Personal-Expense-TrackerTests";
 			sourceTree = "<group>";
 		};
@@ -52,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87A766F62FA080DA009765A6 /* ViewModels in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +95,7 @@
 			);
 			name = "Personal-Expense-Tracker";
 			packageProductDependencies = (
+				87A766F52FA080DA009765A6 /* ViewModels */,
 			);
 			productName = "Personal-Expense-Tracker";
 			productReference = 87A766312F9F86C3009765A6 /* Personal-Expense-Tracker.app */;
@@ -158,6 +151,9 @@
 			);
 			mainGroup = 87A766282F9F86C3009765A6;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				87A766F42FA080DA009765A6 /* XCLocalSwiftPackageReference "../Packages/ViewModels" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 87A766322F9F86C3009765A6 /* Products */;
 			projectDirPath = "";
@@ -462,6 +458,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		87A766F42FA080DA009765A6 /* XCLocalSwiftPackageReference "../Packages/ViewModels" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../Packages/ViewModels;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		87A766F52FA080DA009765A6 /* ViewModels */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ViewModels;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 87A766292F9F86C3009765A6 /* Project object */;
 }
