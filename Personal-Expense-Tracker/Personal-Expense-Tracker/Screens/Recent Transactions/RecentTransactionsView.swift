@@ -8,17 +8,13 @@
 import SwiftUI
 import ViewModels
 
-enum RouterDestination: Hashable {
-	case recentTransactions
-	case addNewTransaction
-}
 
 struct RecentTransactionsView: View {
-	@State private var path: [RouterDestination] = []
 	@State private var recentTransactionsViewModel = RecentTransactionsViewModel()
+	@Environment(RouterPath.self) private var routerPath
 
 	var body: some View {
-		NavigationStack(path: $path) {
+		NavigationStack(path: routerPath.pathBinding) {
 			VStack {
 				Picker("Options", selection: $recentTransactionsViewModel.selectedDuration) {
 					ForEach(ExpensePeriod.allCases) { opt in
@@ -29,7 +25,8 @@ struct RecentTransactionsView: View {
 				Spacer()
 				Text(recentTransactionsViewModel.emptyState.message)
 				Button(recentTransactionsViewModel.emptyState.actionTitle) {
-					path.append(.addNewTransaction)
+					// Mutate the environment router path to navigate
+					routerPath.path.append(.addNewTransaction)
 				}
 				.frame(height: 40)
 				.padding([.leading, .trailing], 12)
