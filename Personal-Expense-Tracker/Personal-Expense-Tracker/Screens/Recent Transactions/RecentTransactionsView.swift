@@ -8,24 +8,13 @@
 import SwiftUI
 import ViewModels
 
-enum RouterDestination: Hashable {
-	case recentTransactions
-	case addNewTransaction
-}
 
 struct RecentTransactionsView: View {
 	@State private var recentTransactionsViewModel = RecentTransactionsViewModel()
 	@Environment(RouterPath.self) private var routerPath
 
 	var body: some View {
-		// Create an explicit Binding<[RouterDestination]> to avoid parser/generic
-		// ambiguity with the NavigationStack trailing closure.
-		let pathBinding = Binding<[RouterDestination]>(
-			get: { routerPath.path },
-			set: { routerPath.path = $0 }
-		)
-
-		NavigationStack(path: pathBinding) {
+		NavigationStack(path: routerPath.pathBinding) {
 			VStack {
 				Picker("Options", selection: $recentTransactionsViewModel.selectedDuration) {
 					ForEach(ExpensePeriod.allCases) { opt in

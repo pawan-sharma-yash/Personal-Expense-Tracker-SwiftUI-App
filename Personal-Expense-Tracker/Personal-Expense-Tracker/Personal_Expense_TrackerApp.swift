@@ -21,8 +21,8 @@ fileprivate extension UISegmentedControl {
 				.foregroundColor: UIColor.darkGray,
 				.font: UIFont.systemFont(ofSize: 16, weight: .medium)
 			],
-			for: .normal
-		)
+															for: .normal
+			)
 
 		// Set font for selected state
 		UISegmentedControl.appearance()
@@ -30,20 +30,32 @@ fileprivate extension UISegmentedControl {
 				.foregroundColor: UIColor.white,
 				.font: UIFont.systemFont(ofSize: 16, weight: .bold)
 			],
-			for: .selected
+															for: .selected
+			)
+	}
+}
+
+enum RouterDestination: Hashable {
+	case recentTransactions
+	case addNewTransaction
+}
+
+@Observable @MainActor
+final class RouterPath {
+	var path: [RouterDestination] = []
+
+	// Provide a reusable Binding so views can pass it directly to NavigationStack
+	// (avoids creating Binding(get:set:) at every call-site).
+	var pathBinding: Binding<[RouterDestination]> {
+		Binding(
+			get: { self.path },
+			set: { self.path = $0 }
 		)
 	}
 }
 
-@Observable
-final class RouterPath {
-	var path: [RouterDestination] = []
-}
-
 @main
 struct Personal_Expense_TrackerApp: App {
-
-
 	init() {
 		UISegmentedControl._customAppearance()
 	}
