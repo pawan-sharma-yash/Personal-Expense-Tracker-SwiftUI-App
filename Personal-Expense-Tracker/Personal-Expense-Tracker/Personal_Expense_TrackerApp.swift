@@ -7,6 +7,7 @@
 
 import SwiftUI
 import UIKit
+import Observation
 
 fileprivate extension UISegmentedControl {
 	static func _customAppearance() {
@@ -34,8 +35,14 @@ fileprivate extension UISegmentedControl {
 	}
 }
 
+@Observable
+final class RouterPath {
+	var path: [RouterDestination] = []
+}
+
 @main
 struct Personal_Expense_TrackerApp: App {
+
 
 	init() {
 		UISegmentedControl._customAppearance()
@@ -45,5 +52,6 @@ struct Personal_Expense_TrackerApp: App {
 		WindowGroup {
 			RecentTransactionsView()
 		}
+		.environment(RouterPath())
 	}
 }
