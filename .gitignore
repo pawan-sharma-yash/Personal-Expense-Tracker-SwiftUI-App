@@ -25,6 +25,8 @@ xcuserdata/
 *.xcworkspace
 *.xcodeproj/project.xcworkspace/
 *.xcodeproj/xcuserdata/
+.derivedData/
+.sourcePackages/
 *.moved-aside
 *.xcscmblueprint
 *.xcarchive
