@@ -7,6 +7,7 @@
 
 import SwiftUI
 import ViewModels
+import DesignSystem
 
 
 struct RecentTransactionsView: View {

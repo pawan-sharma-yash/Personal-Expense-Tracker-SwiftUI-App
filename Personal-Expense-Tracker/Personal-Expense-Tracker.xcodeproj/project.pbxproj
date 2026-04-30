@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		87A766F62FA080DA009765A6 /* ViewModels in Frameworks */ = {isa = PBXBuildFile; productRef = 87A766F52FA080DA009765A6 /* ViewModels */; };
+		87A7671A2FB00000009765A6 /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 87A7671C2FB00000009765A6 /* DesignSystem */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				87A766F62FA080DA009765A6 /* ViewModels in Frameworks */,
+				87A7671A2FB00000009765A6 /* DesignSystem in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +98,7 @@
 			name = "Personal-Expense-Tracker";
 			packageProductDependencies = (
 				87A766F52FA080DA009765A6 /* ViewModels */,
+				87A7671C2FB00000009765A6 /* DesignSystem */,
 			);
 			productName = "Personal-Expense-Tracker";
 			productReference = 87A766312F9F86C3009765A6 /* Personal-Expense-Tracker.app */;
@@ -153,6 +156,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				87A766F42FA080DA009765A6 /* XCLocalSwiftPackageReference "../Packages/ViewModels" */,
+				87A7671B2FB00000009765A6 /* XCLocalSwiftPackageReference "../Packages/DesignSystem" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 87A766322F9F86C3009765A6 /* Products */;
@@ -464,12 +468,20 @@
 			isa = XCLocalSwiftPackageReference;
 			relativePath = ../Packages/ViewModels;
 		};
+		87A7671B2FB00000009765A6 /* XCLocalSwiftPackageReference "../Packages/DesignSystem" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../Packages/DesignSystem;
+		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
 		87A766F52FA080DA009765A6 /* ViewModels */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ViewModels;
+		};
+		87A7671C2FB00000009765A6 /* DesignSystem */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DesignSystem;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
