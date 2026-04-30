@@ -8,30 +8,27 @@
 import SwiftUI
 import UIKit
 import Observation
+import DesignSystem
 
 fileprivate extension UISegmentedControl {
 	static func _customAppearance() {
 		// Customize the segmented control appearance
-		UISegmentedControl.appearance().backgroundColor = .systemGray6
-		UISegmentedControl.appearance().selectedSegmentTintColor = .systemCyan
+		UISegmentedControl.appearance().backgroundColor = UIColor(DS.ColorToken.surface)
+		UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(DS.ColorToken.accent)
 
 		// Set font for normal state
 		UISegmentedControl.appearance()
 			.setTitleTextAttributes([
 				.foregroundColor: UIColor.darkGray,
-				.font: UIFont.systemFont(ofSize: 16, weight: .medium)
-			],
-															for: .normal
-			)
+				.font: UIFont.systemFont(ofSize: 15, weight: .semibold)
+			], for: .normal)
 
 		// Set font for selected state
 		UISegmentedControl.appearance()
 			.setTitleTextAttributes([
 				.foregroundColor: UIColor.white,
-				.font: UIFont.systemFont(ofSize: 16, weight: .bold)
-			],
-															for: .selected
-			)
+				.font: UIFont.systemFont(ofSize: 15, weight: .bold)
+			], for: .selected)
 	}
 }
 
@@ -40,9 +37,12 @@ enum RouterDestination: Hashable {
 	case addNewTransaction
 }
 
-@Observable @MainActor
+@MainActor
+@Observable
 final class RouterPath {
-	var path: [RouterDestination] = []
+	public var path: [RouterDestination] = []
+
+	public init() { }
 }
 
 @main
@@ -54,7 +54,7 @@ struct Personal_Expense_TrackerApp: App {
 	var body: some Scene {
 		WindowGroup {
 			RecentTransactionsView()
+				.environment(RouterPath())
 		}
-		.environment(RouterPath())
 	}
 }
