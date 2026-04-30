@@ -23,24 +23,33 @@ struct RecentTransactionsView: View {
 					}
 				}
 				.pickerStyle(.segmented)
+
 				Spacer()
-				Text(recentTransactionsViewModel.emptyState.message)
-				Button(recentTransactionsViewModel.emptyState.actionTitle) {
-					// Mutate the environment router path to navigate
-					routerPath.path.append(.addNewTransaction)
+
+				VStack(spacing: DS.Metrics.Spacing.s) {
+					Text(recentTransactionsViewModel.emptyState.message)
+						.font(DS.Typography.headline)
+						.foregroundStyle(DS.ColorToken.textPrimary)
+
+					Text(recentTransactionsViewModel.emptyState.subTitle)
+						.font(DS.Typography.caption)
+						.foregroundStyle(DS.ColorToken.textSecondary)
+
+					Button(recentTransactionsViewModel.emptyState.actionTitle) {
+						// Mutate the environment router path to navigate
+						routerPath.path.append(.addNewTransaction)
+					}
+					.buttonStyle(DS.Components.PrimaryButtonStyle())
+					.padding(.top, DS.Metrics.Spacing.s)
 				}
-				.frame(height: 40)
-				.padding([.leading, .trailing], 12)
-				.overlay(
-					RoundedRectangle(cornerRadius: 8)
-						.stroke(Color.green, lineWidth: 2)  // border color & width
-				)
-				.padding([.top], 12)
+				.dsCard()
+
 				Spacer()
 			}
-			.padding()
+			.padding(DS.Metrics.Spacing.m)
 			.withAppRouter()
 			.navigationTitle("ExpenseTracker")
+			.navigationBarTitleDisplayMode(.inline)
 		}
 	}
 }

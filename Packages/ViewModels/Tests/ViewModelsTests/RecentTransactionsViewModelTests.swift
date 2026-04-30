@@ -12,5 +12,6 @@ struct RecentTranctionsViewModel {
 	@Test() func `shows correct empty state messages`() {
 		#expect(vm.emptyState.message == "No recent transactions")
 		#expect(vm.emptyState.actionTitle == "Add transactions")
+		#expect(vm.emptyState.subTitle == "Track every expense to see trends over time.")
 	}
 }
