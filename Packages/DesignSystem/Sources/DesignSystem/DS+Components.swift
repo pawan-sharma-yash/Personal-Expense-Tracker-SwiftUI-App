@@ -1,20 +1,20 @@
 import SwiftUI
 
 extension DS {
-	enum Components { }
+	public enum Components { }
 }
 
 // MARK: - Card
 
 extension DS.Components {
-	struct Card: ViewModifier {
+	public struct Card: ViewModifier {
 		let padding: CGFloat
 
-		init(padding: CGFloat = DS.Metrics.Spacing.m) {
+		public init(padding: CGFloat = DS.Metrics.Spacing.m) {
 			self.padding = padding
 		}
 
-		func body(content: Content) -> some View {
+		public func body(content: Content) -> some View {
 			content
 				.padding(padding)
 				.background(DS.ColorToken.surface)
@@ -27,7 +27,7 @@ extension DS.Components {
 	}
 }
 
-extension View {
+public extension View {
 	func dsCard(padding: CGFloat = DS.Metrics.Spacing.m) -> some View {
 		modifier(DS.Components.Card(padding: padding))
 	}
@@ -36,8 +36,10 @@ extension View {
 // MARK: - Buttons
 
 extension DS.Components {
-	struct PrimaryButtonStyle: ButtonStyle {
-		func makeBody(configuration: Configuration) -> some View {
+	public struct PrimaryButtonStyle: ButtonStyle {
+		public init() { }
+
+		public func makeBody(configuration: Configuration) -> some View {
 			configuration.label
 				.font(DS.Typography.body.weight(.semibold))
 				.foregroundStyle(.white)
@@ -49,14 +51,14 @@ extension DS.Components {
 		}
 	}
 
-	struct SecondaryButtonStyle: ButtonStyle {
+	public struct SecondaryButtonStyle: ButtonStyle {
 		let tint: SwiftUI.Color
 
-		init(tint: SwiftUI.Color = DS.ColorToken.accent) {
+		public init(tint: SwiftUI.Color = DS.ColorToken.accent) {
 			self.tint = tint
 		}
 
-		func makeBody(configuration: Configuration) -> some View {
+		public func makeBody(configuration: Configuration) -> some View {
 			configuration.label
 				.font(DS.Typography.body.weight(.semibold))
 				.foregroundStyle(tint)
@@ -77,8 +79,10 @@ extension DS.Components {
 // MARK: - Inputs
 
 extension DS.Components {
-	struct InputTextFieldStyle: SwiftUI.TextFieldStyle {
-		func _body(configuration: TextField<_Label>) -> some View {
+	public struct InputTextFieldStyle: SwiftUI.TextFieldStyle {
+		public init() { }
+
+		public func _body(configuration: TextField<_Label>) -> some View {
 			configuration
 				.font(DS.Typography.body)
 				.padding(.horizontal, DS.Metrics.Spacing.m)
