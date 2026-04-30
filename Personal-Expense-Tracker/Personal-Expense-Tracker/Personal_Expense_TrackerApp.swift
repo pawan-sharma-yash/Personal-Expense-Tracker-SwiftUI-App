@@ -43,15 +43,6 @@ enum RouterDestination: Hashable {
 @Observable @MainActor
 final class RouterPath {
 	var path: [RouterDestination] = []
-
-	// Provide a reusable Binding so views can pass it directly to NavigationStack
-	// (avoids creating Binding(get:set:) at every call-site).
-	var pathBinding: Binding<[RouterDestination]> {
-		Binding(
-			get: { self.path },
-			set: { self.path = $0 }
-		)
-	}
 }
 
 @main

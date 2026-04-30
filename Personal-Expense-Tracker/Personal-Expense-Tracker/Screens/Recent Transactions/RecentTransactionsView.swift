@@ -14,7 +14,8 @@ struct RecentTransactionsView: View {
 	@Environment(RouterPath.self) private var routerPath
 
 	var body: some View {
-		NavigationStack(path: routerPath.pathBinding) {
+		@Bindable var routerPath = routerPath
+		NavigationStack(path: $routerPath.path) {
 			VStack {
 				Picker("Options", selection: $recentTransactionsViewModel.selectedDuration) {
 					ForEach(ExpensePeriod.allCases) { opt in
