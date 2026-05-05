@@ -18,5 +18,12 @@ public final class RecentTransactionsViewModel {
 		)
 	}
 
+	// FIXME: Add the real logic for transactions
+	public var recentTransactions: [Transaction] = [
+//		Transaction(title: "McDonald's", date: .now, amount: -12.50, category: .food),
+//		Transaction(title: "Shell Gas Station", date: .now.addingTimeInterval(-60 * 60 * 6), amount: -45.20, category: .transport),
+//		Transaction(title: "Salary Deposit", date: .now.addingTimeInterval(-60 * 60 * 24), amount: 3_200, category: .other),
+	]
+
 	public init() { }
 }

@@ -27,24 +27,27 @@ struct RecentTransactionsView: View {
 
 				Spacer()
 
-				VStack(spacing: DS.Metrics.Spacing.s) {
-					Text(recentTransactionsViewModel.emptyState.message)
-						.font(DS.Typography.headline)
-						.foregroundStyle(DS.ColorToken.textPrimary)
+				if recentTransactionsViewModel.recentTransactions.isEmpty {
+					VStack(spacing: DS.Metrics.Spacing.s) {
+						Text(recentTransactionsViewModel.emptyState.message)
+							.font(DS.Typography.headline)
+							.foregroundStyle(DS.ColorToken.textPrimary)
 
-					Text(recentTransactionsViewModel.emptyState.subTitle)
-						.font(DS.Typography.caption)
-						.foregroundStyle(DS.ColorToken.textSecondary)
+						Text(recentTransactionsViewModel.emptyState.subTitle)
+							.font(DS.Typography.caption)
+							.foregroundStyle(DS.ColorToken.textSecondary)
 
-					Button(recentTransactionsViewModel.emptyState.actionTitle) {
-						// Mutate the environment router path to navigate
-						routerPath.path.append(.addNewTransaction)
+						Button(recentTransactionsViewModel.emptyState.actionTitle) {
+							// Mutate the environment router path to navigate
+							routerPath.path.append(.addNewTransaction)
+						}
+						.buttonStyle(DS.Components.PrimaryButtonStyle())
+						.padding(.top, DS.Metrics.Spacing.s)
 					}
-					.buttonStyle(DS.Components.PrimaryButtonStyle())
-					.padding(.top, DS.Metrics.Spacing.s)
+					.dsCard()
+				} else {
+					Text("Render the transactions")
 				}
-				.dsCard()
-
 				Spacer()
 			}
 			.padding(DS.Metrics.Spacing.m)
