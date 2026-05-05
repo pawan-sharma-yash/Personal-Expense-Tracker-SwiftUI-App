@@ -3,7 +3,7 @@ import Observation
 
 @Observable
 public final class DashboardViewModel {
-	public var selectedPeriod: ExpensePeriod = .daily
+	public var selectedPeriod = ExpensePeriod.daily
 
 	// Placeholder values until persistence is added.
 	public var totalBalance: Decimal = 12_847.50
