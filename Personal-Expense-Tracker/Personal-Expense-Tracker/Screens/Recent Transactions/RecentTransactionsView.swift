@@ -9,7 +9,6 @@ import SwiftUI
 import ViewModels
 import DesignSystem
 
-
 struct RecentTransactionsView: View {
 	@State private var recentTransactionsViewModel = RecentTransactionsViewModel()
 	@Environment(RouterPath.self) private var routerPath
@@ -48,7 +47,7 @@ struct RecentTransactionsView: View {
 			}
 			.padding(DS.Metrics.Spacing.m)
 			.withAppRouter()
-			.navigationTitle("ExpenseTracker")
+			.navigationTitle("Expense Tracker")
 			.navigationBarTitleDisplayMode(.inline)
 		}
 	}
