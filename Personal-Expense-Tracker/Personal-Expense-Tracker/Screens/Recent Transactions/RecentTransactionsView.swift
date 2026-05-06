@@ -53,7 +53,14 @@ struct RecentTransactionsView: View {
 				Button {
 					routerPath.path.append(.addNewTransaction)
 				} label: {
-					Image(systemName: "plus.circle.fill")
+					Circle()
+						.fill(Color.white)
+						.overlay {
+							Image(systemName: "plus.circle.fill")
+								.font(.title2)
+								.fontWeight(.semibold)
+								.foregroundColor(DS.ColorToken.accent)
+						}
 				}
 			}
 		}
