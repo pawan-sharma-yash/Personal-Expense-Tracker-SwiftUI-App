@@ -54,7 +54,6 @@ struct RecentTransactionsView: View {
 			.padding(DS.Metrics.Spacing.m)
 			.withAppRouter()
 			.navigationTitle("Expense Tracker")
-			.navigationBarTitleDisplayMode(.inline)
 			.toolbar {
 				Button {
 					navigateToAddTrasaction()
