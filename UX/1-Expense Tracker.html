@@ -1,0 +1,241 @@
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      window.FontAwesomeConfig = {
+        autoReplaceSvg: 'nest'
+      };
+    </script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet">
+
+    <script>
+      tailwind.config = {
+        theme:
+        {
+          extend:
+          {
+            fontFamily:
+            {
+              'inter': ['Inter', 'sans-serif'],
+            },
+            colors:
+            {
+              primary: '#0F172A',
+              secondary: '#1E293B',
+              accent: '#0EA5E9',
+              success: '#10B981',
+              danger: '#EF4444',
+              teal:
+              {
+                50: '#F0FDFA',
+                500: '#14B8A6',
+                600: '#0D9488',
+                700: '#0F766E',
+                800: '#115E59',
+                900: '#134E4A',
+              }
+            }
+          }
+        }
+      }
+    </script>
+
+    <style>
+      ::-webkit-scrollbar
+      {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body class="font-inter bg-slate-50">
+    <!-- Header -->
+    <header id="header"
+      class="bg-white shadow-sm border-b border-slate-100 sticky top-0 z-50">
+      <div class="px-4 py-4 flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+          <div
+            class="w-8 h-8 bg-teal-600 rounded-lg flex items-center justify-center">
+            <i class="fas fa-wallet text-white text-sm"></i></div>
+          <h1 class="text-xl font-bold text-slate-900">ExpenseTracker</h1>
+        </div>
+        <div class="flex items-center space-x-3"><button
+            class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center"><i
+              class="fas fa-bell text-slate-600"></i></button><img
+            src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-1.jpg"
+            alt="Profile" class="w-10 h-10 rounded-full object-cover"></div>
+      </div>
+    </header><!-- Summary Cards -->
+    <!-- Tab Controller -->
+    <section id="tab-section"
+      class="bg-white px-4 py-4 border-b border-slate-100">
+      <div class="flex bg-slate-100 rounded-xl p-1"><button id="daily-tab"
+          class="tab-btn flex-1 py-2 px-4 text-sm font-medium rounded-lg bg-teal-600 text-white">Daily</button><button
+          id="weekly-tab"
+          class="tab-btn flex-1 py-2 px-4 text-sm font-medium rounded-lg text-slate-600">Weekly</button><button
+          id="monthly-tab"
+          class="tab-btn flex-1 py-2 px-4 text-sm font-medium rounded-lg text-slate-600">Monthly</button>
+      </div>
+    </section><!-- Transaction List -->
+    <section id="transactions-section" class="flex-1 bg-white px-4 pb-6">
+      <div class="py-4">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-lg font-semibold text-slate-900">Recent Transactions
+          </h2><button class="text-teal-600 text-sm font-medium">View
+            All</button>
+        </div>
+        <div id="transaction-list" class="space-y-3">
+          <!-- Transaction Item 1 -->
+          <div
+            class="transaction-item flex items-center justify-between p-4 bg-slate-50 rounded-xl">
+            <div class="flex items-center space-x-3">
+              <div
+                class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center">
+                <i class="fas fa-utensils text-orange-600"></i></div>
+              <div>
+                <p class="font-semibold text-slate-900 text-sm">McDonald's</p>
+                <p class="text-slate-500 text-xs">Today, 2:30 PM</p>
+              </div>
+            </div>
+            <p class="font-bold text-red-500">-$12.50</p>
+          </div><!-- Transaction Item 2 -->
+          <div
+            class="transaction-item flex items-center justify-between p-4 bg-slate-50 rounded-xl">
+            <div class="flex items-center space-x-3">
+              <div
+                class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+                <i class="fas fa-gas-pump text-blue-600"></i></div>
+              <div>
+                <p class="font-semibold text-slate-900 text-sm">Shell Gas
+                  Station</p>
+                <p class="text-slate-500 text-xs">Today, 8:45 AM</p>
+              </div>
+            </div>
+            <p class="font-bold text-red-500">-$45.20</p>
+          </div><!-- Transaction Item 3 -->
+          <div
+            class="transaction-item flex items-center justify-between p-4 bg-slate-50 rounded-xl">
+            <div class="flex items-center space-x-3">
+              <div
+                class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
+                <i class="fas fa-money-bill text-green-600"></i></div>
+              <div>
+                <p class="font-semibold text-slate-900 text-sm">Salary Deposit
+                </p>
+                <p class="text-slate-500 text-xs">Yesterday, 9:00 AM</p>
+              </div>
+            </div>
+            <p class="font-bold text-green-500">+$3,200.00</p>
+          </div><!-- Transaction Item 4 -->
+          <div
+            class="transaction-item flex items-center justify-between p-4 bg-slate-50 rounded-xl">
+            <div class="flex items-center space-x-3">
+              <div
+                class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center">
+                <i class="fas fa-shopping-bag text-purple-600"></i></div>
+              <div>
+                <p class="font-semibold text-slate-900 text-sm">Amazon Purchase
+                </p>
+                <p class="text-slate-500 text-xs">Yesterday, 3:15 PM</p>
+              </div>
+            </div>
+            <p class="font-bold text-red-500">-$89.99</p>
+          </div><!-- Transaction Item 5 -->
+          <div
+            class="transaction-item flex items-center justify-between p-4 bg-slate-50 rounded-xl">
+            <div class="flex items-center space-x-3">
+              <div
+                class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center">
+                <i class="fas fa-car text-red-600"></i></div>
+              <div>
+                <p class="font-semibold text-slate-900 text-sm">Uber Ride</p>
+                <p class="text-slate-500 text-xs">Yesterday, 7:20 PM</p>
+              </div>
+            </div>
+            <p class="font-bold text-red-500">-$18.75</p>
+          </div><!-- Transaction Item 6 -->
+          <div
+            class="transaction-item flex items-center justify-between p-4 bg-slate-50 rounded-xl">
+            <div class="flex items-center space-x-3">
+              <div
+                class="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center">
+                <i class="fas fa-coffee text-indigo-600"></i></div>
+              <div>
+                <p class="font-semibold text-slate-900 text-sm">Starbucks</p>
+                <p class="text-slate-500 text-xs">2 days ago, 10:30 AM</p>
+              </div>
+            </div>
+            <p class="font-bold text-red-500">-$6.45</p>
+          </div><!-- Transaction Item 7 -->
+          <div
+            class="transaction-item flex items-center justify-between p-4 bg-slate-50 rounded-xl">
+            <div class="flex items-center space-x-3">
+              <div
+                class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
+                <i class="fas fa-piggy-bank text-green-600"></i></div>
+              <div>
+                <p class="font-semibold text-slate-900 text-sm">Savings Interest
+                </p>
+                <p class="text-slate-500 text-xs">3 days ago, 12:00 PM</p>
+              </div>
+            </div>
+            <p class="font-bold text-green-500">+$25.30</p>
+          </div>
+        </div>
+      </div>
+    </section><!-- Bottom Navigation -->
+    <nav id="bottom-nav"
+      class="bg-white border-t border-slate-100 px-4 py-3 sticky bottom-0">
+      <div class="flex items-center justify-around"><button
+          class="flex flex-col items-center space-y-1 text-teal-600"><i
+            class="fas fa-home text-lg"></i><span
+            class="text-xs font-medium">Home</span></button><button
+          class="flex flex-col items-center space-y-1 text-slate-400"><i
+            class="fas fa-chart-line text-lg"></i><span
+            class="text-xs font-medium">Analytics</span></button><button
+          class="w-12 h-12 bg-teal-600 rounded-full flex items-center justify-center"><i
+            class="fas fa-plus text-white text-lg"></i></button><button
+          class="flex flex-col items-center space-y-1 text-slate-400"><i
+            class="fas fa-wallet text-lg"></i><span
+            class="text-xs font-medium">Budget</span></button><button
+          class="flex flex-col items-center space-y-1 text-slate-400"><i
+            class="fas fa-user text-lg"></i><span
+            class="text-xs font-medium">Profile</span></button></div>
+    </nav>
+    <script>
+      document.addEventListener('DOMContentLoaded', function()
+      {
+        const tabButtons = document.querySelectorAll('.tab-btn');
+
+        tabButtons.forEach(button =>
+        {
+          button.addEventListener('click', function()
+          {
+            tabButtons.forEach(btn =>
+            {
+              btn.classList.remove('bg-teal-600', 'text-white');
+              btn.classList.add('text-slate-600');
+            });
+
+            this.classList.add('bg-teal-600', 'text-white');
+            this.classList.remove('text-slate-600');
+          });
+        });
+      });
+    </script>
+  </body>
+
+</html>

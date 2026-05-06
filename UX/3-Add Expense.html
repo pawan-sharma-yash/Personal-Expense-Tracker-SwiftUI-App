@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Expense</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script> window.FontAwesomeConfig = { autoReplaceSvg: 'nest'};</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>::-webkit-scrollbar { display: none;}</style>
+</head>
+<body class="font-inter bg-slate-50 min-h-screen">
+
+    <div id="mobile-container" class="max-w-md mx-auto bg-white min-h-screen">
+        
+        <!-- Header -->
+        <header id="header" class="bg-white border-b border-gray-100 px-4 py-4 flex items-center justify-between">
+            <button class="p-2 -ml-2 rounded-full hover:bg-gray-100 transition-colors">
+                <i class="fa-solid fa-arrow-left text-gray-600 text-lg"></i>
+            </button>
+            <h1 class="text-lg font-semibold text-gray-800">Add Expense</h1>
+            <button class="text-sm font-medium text-blue-600 hover:text-blue-700 px-2 py-1">
+                Cancel
+            </button>
+        </header>
+
+        <!-- Main Content -->
+        <main id="main-content" class="p-4 pb-24">
+            
+            <!-- Amount Input Section -->
+            <section id="amount-section" class="mb-8">
+                <label class="block text-sm font-medium text-gray-600 mb-3">Amount</label>
+                <div class="relative">
+                    <span class="absolute left-4 top-1/2 transform -translate-y-1/2 text-2xl font-semibold text-gray-400">$</span>
+                    <input type="number" 
+                           placeholder="0.00" 
+                           class="w-full pl-10 pr-4 py-6 text-3xl font-semibold text-gray-800 bg-gray-50 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                           step="0.01">
+                </div>
+            </section>
+
+            <!-- Category Selection -->
+            <section id="category-section" class="mb-8">
+                <label class="block text-sm font-medium text-gray-600 mb-4">Category</label>
+                <div class="grid grid-cols-4 gap-3">
+                    <button class="category-btn flex flex-col items-center p-4 rounded-xl bg-blue-50 border-2 border-blue-200 transition-all">
+                        <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center mb-2">
+                            <i class="fa-solid fa-utensils text-white text-sm"></i>
+                        </div>
+                        <span class="text-xs font-medium text-blue-700">Food</span>
+                    </button>
+                    
+                    <button class="category-btn flex flex-col items-center p-4 rounded-xl bg-gray-50 border-2 border-gray-200 hover:bg-gray-100 transition-all">
+                        <div class="w-10 h-10 bg-gray-400 rounded-full flex items-center justify-center mb-2">
+                            <i class="fa-solid fa-car text-white text-sm"></i>
+                        </div>
+                        <span class="text-xs font-medium text-gray-600">Transport</span>
+                    </button>
+                    
+                    <button class="category-btn flex flex-col items-center p-4 rounded-xl bg-gray-50 border-2 border-gray-200 hover:bg-gray-100 transition-all">
+                        <div class="w-10 h-10 bg-gray-400 rounded-full flex items-center justify-center mb-2">
+                            <i class="fa-solid fa-shopping-bag text-white text-sm"></i>
+                        </div>
+                        <span class="text-xs font-medium text-gray-600">Shopping</span>
+                    </button>
+                    
+                    <button class="category-btn flex flex-col items-center p-4 rounded-xl bg-gray-50 border-2 border-gray-200 hover:bg-gray-100 transition-all">
+                        <div class="w-10 h-10 bg-gray-400 rounded-full flex items-center justify-center mb-2">
+                            <i class="fa-solid fa-home text-white text-sm"></i>
+                        </div>
+                        <span class="text-xs font-medium text-gray-600">Home</span>
+                    </button>
+                    
+                    <button class="category-btn flex flex-col items-center p-4 rounded-xl bg-gray-50 border-2 border-gray-200 hover:bg-gray-100 transition-all">
+                        <div class="w-10 h-10 bg-gray-400 rounded-full flex items-center justify-center mb-2">
+                            <i class="fa-solid fa-gamepad text-white text-sm"></i>
+                        </div>
+                        <span class="text-xs font-medium text-gray-600">Fun</span>
+                    </button>
+                    
+                    <button class="category-btn flex flex-col items-center p-4 rounded-xl bg-gray-50 border-2 border-gray-200 hover:bg-gray-100 transition-all">
+                        <div class="w-10 h-10 bg-gray-400 rounded-full flex items-center justify-center mb-2">
+                            <i class="fa-solid fa-heartbeat text-white text-sm"></i>
+                        </div>
+                        <span class="text-xs font-medium text-gray-600">Health</span>
+                    </button>
+                    
+                    <button class="category-btn flex flex-col items-center p-4 rounded-xl bg-gray-50 border-2 border-gray-200 hover:bg-gray-100 transition-all">
+                        <div class="w-10 h-10 bg-gray-400 rounded-full flex items-center justify-center mb-2">
+                            <i class="fa-solid fa-graduation-cap text-white text-sm"></i>
+                        </div>
+                        <span class="text-xs font-medium text-gray-600">Education</span>
+                    </button>
+                    
+                    <button class="category-btn flex flex-col items-center p-4 rounded-xl bg-gray-50 border-2 border-gray-200 hover:bg-gray-100 transition-all">
+                        <div class="w-10 h-10 bg-gray-400 rounded-full flex items-center justify-center mb-2">
+                            <i class="fa-solid fa-plus text-white text-sm"></i>
+                        </div>
+                        <span class="text-xs font-medium text-gray-600">Other</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Description Field -->
+            <section id="description-section" class="mb-6">
+                <label class="block text-sm font-medium text-gray-600 mb-3">Description</label>
+                <input type="text" 
+                       placeholder="Add a note (optional)" 
+                       class="w-full px-4 py-4 text-base text-gray-800 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+            </section>
+
+            <!-- Date Field -->
+            <section id="date-section" class="mb-6">
+                <label class="block text-sm font-medium text-gray-600 mb-3">Date</label>
+                <button class="w-full px-4 py-4 text-base text-gray-800 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all flex items-center justify-between">
+                    <span>Today, Dec 27, 2024</span>
+                    <i class="fa-solid fa-calendar text-gray-400"></i>
+                </button>
+            </section>
+
+        </main>
+
+        <!-- Bottom Action Button -->
+        <div id="bottom-actions" class="fixed bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-md bg-white border-t border-gray-100 p-4">
+            <button class="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                Save Expense
+            </button>
+        </div>
+
+    </div>
+
+    <script>
+        // Category selection functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoryButtons = document.querySelectorAll('.category-btn');
+            
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active state from all buttons
+                    categoryButtons.forEach(btn => {
+                        btn.classList.remove('bg-blue-50', 'border-blue-200');
+                        btn.classList.add('bg-gray-50', 'border-gray-200');
+                        const icon = btn.querySelector('div');
+                        const text = btn.querySelector('span');
+                        icon.classList.remove('bg-blue-500');
+                        icon.classList.add('bg-gray-400');
+                        text.classList.remove('text-blue-700');
+                        text.classList.add('text-gray-600');
+                    });
+                    
+                    // Add active state to clicked button
+                    this.classList.remove('bg-gray-50', 'border-gray-200');
+                    this.classList.add('bg-blue-50', 'border-blue-200');
+                    const icon = this.querySelector('div');
+                    const text = this.querySelector('span');
+                    icon.classList.remove('bg-gray-400');
+                    icon.classList.add('bg-blue-500');
+                    text.classList.remove('text-gray-600');
+                    text.classList.add('text-blue-700');
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
