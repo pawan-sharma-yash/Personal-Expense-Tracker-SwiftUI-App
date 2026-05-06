@@ -1,8 +1,11 @@
-import SwiftUI
+//
+//  Card.swift
+//  DesignSystem
+//
+//  Created by Pawan Kumar Sharma on 06/05/26.
+//
 
-extension DS {
-	public enum Components { }
-}
+import SwiftUI
 
 // MARK: - Card
 
