@@ -49,6 +49,13 @@ struct RecentTransactionsView: View {
 			.withAppRouter()
 			.navigationTitle("Expense Tracker")
 			.navigationBarTitleDisplayMode(.inline)
+			.toolbar {
+				Button {
+					routerPath.path.append(.addNewTransaction)
+				} label: {
+					Image(systemName: "plus.circle.fill")
+				}
+			}
 		}
 	}
 }
