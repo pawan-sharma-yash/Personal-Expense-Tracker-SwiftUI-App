@@ -8,7 +8,7 @@ import AppKit
 extension DS {
 	public enum ColorToken {
 		// Brand / Accent
-		public static let accent = SwiftUI.Color(red: 0.00, green: 0.63, blue: 0.78) // cyan-ish
+		public static let accent = SwiftUI.Color(red: 0.051, green: 0.580, blue: 0.533) // cyan-ish
 
 		// Surfaces
 		#if canImport(UIKit)
