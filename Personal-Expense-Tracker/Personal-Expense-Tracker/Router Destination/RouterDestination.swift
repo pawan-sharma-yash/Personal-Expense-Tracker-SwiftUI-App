@@ -8,4 +8,5 @@
 enum RouterDestination: Hashable {
 	case recentTransactions
 	case addNewTransaction
+	case expenseDetails
 }
