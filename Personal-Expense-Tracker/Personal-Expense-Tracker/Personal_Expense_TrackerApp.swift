@@ -32,19 +32,6 @@ fileprivate extension UISegmentedControl {
 	}
 }
 
-enum RouterDestination: Hashable {
-	case recentTransactions
-	case addNewTransaction
-}
-
-@MainActor
-@Observable
-final class RouterPath {
-	public var path: [RouterDestination] = []
-
-	public init() { }
-}
-
 @main
 struct Personal_Expense_TrackerApp: App {
 	init() {
