@@ -14,7 +14,6 @@ struct SettingsView: View {
 					Text("Hello, World!")
 				}
 					.navigationTitle("Settings")
-					.navigationBarTitleDisplayMode(.inline)
 			}
     }
 }

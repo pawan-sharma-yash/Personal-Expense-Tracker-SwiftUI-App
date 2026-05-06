@@ -15,7 +15,6 @@ struct ExpenseAnalyticsView: View {
 					Text("Hello, World!")
 				}
 				.navigationTitle("Analytics")
-				.navigationBarTitleDisplayMode(.inline)
 			}
     }
 }
