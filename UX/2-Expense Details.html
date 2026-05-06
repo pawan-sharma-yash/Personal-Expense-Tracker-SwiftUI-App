@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Details</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>window.FontAwesomeConfig = { autoReplaceSvg: 'nest'};</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              'inter': ['Inter', 'sans-serif'],
+            },
+            colors: {
+              primary: '#0F172A',
+              secondary: '#1E293B',
+              accent: '#0EA5E9',
+              success: '#10B981',
+              danger: '#EF4444',
+              teal: {
+                50: '#F0FDFA',
+                500: '#14B8A6',
+                600: '#0D9488',
+                700: '#0F766E',
+                800: '#115E59',
+                900: '#134E4A',
+              }
+            }
+          }
+        }
+      }
+    </script>
+
+    <style>::-webkit-scrollbar { display: none;}</style>
+</head>
+<body class="font-inter bg-slate-50">
+
+<!-- Header -->
+<header id="header" class="bg-white shadow-sm border-b border-slate-100 sticky top-0 z-50">
+    <div class="px-4 py-4 flex items-center justify-between">
+        <button id="back-btn" class="w-10 h-10 flex items-center justify-center">
+            <i class="fas fa-arrow-left text-slate-900 text-lg"></i>
+        </button>
+        <h1 class="text-lg font-semibold text-slate-900">Expense Details</h1>
+        <button id="toggle-edit-btn" class="w-10 h-10 flex items-center justify-center">
+            <i class="fas fa-pen text-teal-600 text-base"></i>
+        </button>
+    </div>
+</header>
+
+<!-- View Mode -->
+<section id="view-mode" class="px-4 py-6">
+    <!-- Amount Card -->
+    <div id="amount-card" class="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-6 mb-6 shadow-lg">
+        <div class="flex items-center justify-center mb-2">
+            <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                <i class="fas fa-utensils text-white text-2xl"></i>
+            </div>
+        </div>
+        <h2 class="text-center text-white/80 text-sm font-medium mb-1">Total Amount</h2>
+        <p class="text-center text-white text-4xl font-bold mb-3">$12.50</p>
+        <div class="flex items-center justify-center space-x-2">
+            <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-white text-xs font-medium">Food & Dining</span>
+        </div>
+    </div>
+
+    <!-- Details Card -->
+    <div id="details-card" class="bg-white rounded-2xl p-5 mb-6 shadow-sm">
+        <h3 class="text-base font-semibold text-slate-900 mb-4">Transaction Details</h3>
+        
+        <div class="space-y-4">
+            <div class="flex items-start justify-between py-3 border-b border-slate-100">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-store text-slate-600 text-sm"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-500 mb-1">Merchant</p>
+                        <p class="text-sm font-semibold text-slate-900">McDonald's</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex items-start justify-between py-3 border-b border-slate-100">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-calendar text-slate-600 text-sm"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-500 mb-1">Date & Time</p>
+                        <p class="text-sm font-semibold text-slate-900">Today, 2:30 PM</p>
+                        <p class="text-xs text-slate-500 mt-1">May 15, 2024</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex items-start justify-between py-3 border-b border-slate-100">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-credit-card text-slate-600 text-sm"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-500 mb-1">Payment Method</p>
+                        <p class="text-sm font-semibold text-slate-900">Visa •••• 4532</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex items-start justify-between py-3 border-b border-slate-100">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-repeat text-slate-600 text-sm"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-500 mb-1">Recurring</p>
+                        <p class="text-sm font-semibold text-slate-900">One-time</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex items-start justify-between py-3">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-file-lines text-slate-600 text-sm"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-500 mb-1">Notes</p>
+                        <p class="text-sm font-medium text-slate-900">Lunch with team</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div id="action-buttons" class="flex space-x-3 mb-20">
+        <button class="flex-1 py-3 bg-red-50 text-red-600 rounded-xl font-semibold text-sm">
+            <i class="fas fa-trash mr-2"></i>Delete
+        </button>
+        <button class="flex-1 py-3 bg-slate-100 text-slate-700 rounded-xl font-semibold text-sm">
+            <i class="fas fa-share mr-2"></i>Share
+        </button>
+    </div>
+</section>
+
+<!-- Edit Mode -->
+<section id="edit-mode" class="px-4 py-6 hidden">
+    <form id="edit-form">
+        <!-- Amount Input -->
+        <div id="amount-input-section" class="mb-6">
+            <label class="block text-sm font-semibold text-slate-900 mb-2">Amount</label>
+            <div class="relative">
+                <span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-lg font-semibold">$</span>
+                <input type="number" step="0.01" value="12.50" class="w-full pl-10 pr-4 py-3 bg-white border-2 border-slate-200 rounded-xl text-lg font-semibold text-slate-900 focus:outline-none focus:border-teal-600" placeholder="0.00">
+            </div>
+        </div>
+
+        <!-- Merchant Input -->
+        <div id="merchant-input-section" class="mb-6">
+            <label class="block text-sm font-semibold text-slate-900 mb-2">Merchant</label>
+            <input type="text" value="McDonald's" class="w-full px-4 py-3 bg-white border-2 border-slate-200 rounded-xl text-sm font-medium text-slate-900 focus:outline-none focus:border-teal-600" placeholder="Enter merchant name">
+        </div>
+
+        <!-- Category Selection -->
+        <div id="category-input-section" class="mb-6">
+            <label class="block text-sm font-semibold text-slate-900 mb-2">Category</label>
+            <div class="grid grid-cols-3 gap-2">
+                <button type="button" class="category-btn py-3 px-2 bg-orange-100 border-2 border-orange-500 rounded-xl text-xs font-medium text-orange-600">
+                    <i class="fas fa-utensils mb-1 block text-base"></i>
+                    Food
+                </button>
+                <button type="button" class="category-btn py-3 px-2 bg-white border-2 border-slate-200 rounded-xl text-xs font-medium text-slate-600">
+                    <i class="fas fa-gas-pump mb-1 block text-base"></i>
+                    Transport
+                </button>
+                <button type="button" class="category-btn py-3 px-2 bg-white border-2 border-slate-200 rounded-xl text-xs font-medium text-slate-600">
+                    <i class="fas fa-shopping-bag mb-1 block text-base"></i>
+                    Shopping
+                </button>
+                <button type="button" class="category-btn py-3 px-2 bg-white border-2 border-slate-200 rounded-xl text-xs font-medium text-slate-600">
+                    <i class="fas fa-home mb-1 block text-base"></i>
+                    Bills
+                </button>
+                <button type="button" class="category-btn py-3 px-2 bg-white border-2 border-slate-200 rounded-xl text-xs font-medium text-slate-600">
+                    <i class="fas fa-heart mb-1 block text-base"></i>
+                    Health
+                </button>
+                <button type="button" class="category-btn py-3 px-2 bg-white border-2 border-slate-200 rounded-xl text-xs font-medium text-slate-600">
+                    <i class="fas fa-ellipsis mb-1 block text-base"></i>
+                    Other
+                </button>
+            </div>
+        </div>
+
+        <!-- Date Input -->
+        <div id="date-input-section" class="mb-6">
+            <label class="block text-sm font-semibold text-slate-900 mb-2">Date</label>
+            <input type="date" value="2024-05-15" class="w-full px-4 py-3 bg-white border-2 border-slate-200 rounded-xl text-sm font-medium text-slate-900 focus:outline-none focus:border-teal-600">
+        </div>
+
+        <!-- Time Input -->
+        <div id="time-input-section" class="mb-6">
+            <label class="block text-sm font-semibold text-slate-900 mb-2">Time</label>
+            <input type="time" value="14:30" class="w-full px-4 py-3 bg-white border-2 border-slate-200 rounded-xl text-sm font-medium text-slate-900 focus:outline-none focus:border-teal-600">
+        </div>
+
+        <!-- Payment Method -->
+        <div id="payment-input-section" class="mb-6">
+            <label class="block text-sm font-semibold text-slate-900 mb-2">Payment Method</label>
+            <select class="w-full px-4 py-3 bg-white border-2 border-slate-200 rounded-xl text-sm font-medium text-slate-900 focus:outline-none focus:border-teal-600">
+                <option>Visa •••• 4532</option>
+                <option>Mastercard •••• 8765</option>
+                <option>Cash</option>
+                <option>Debit Card</option>
+            </select>
+        </div>
+
+        <!-- Recurring Toggle -->
+        <div id="recurring-section" class="mb-6">
+            <div class="flex items-center justify-between mb-3">
+                <label class="text-sm font-semibold text-slate-900">Recurring Expense</label>
+                <button type="button" id="recurring-toggle" class="w-12 h-7 bg-slate-200 rounded-full relative transition-colors">
+                    <span class="absolute left-1 top-1 w-5 h-5 bg-white rounded-full shadow-sm transition-transform"></span>
+                </button>
+            </div>
+            
+            <div id="recurring-options" class="hidden">
+                <label class="block text-xs font-medium text-slate-600 mb-2">Frequency</label>
+                <div class="grid grid-cols-2 gap-2">
+                    <button type="button" class="frequency-btn py-2 px-3 bg-white border-2 border-slate-200 rounded-lg text-xs font-medium text-slate-700">
+                        <i class="fas fa-calendar-day mr-1"></i>Daily
+                    </button>
+                    <button type="button" class="frequency-btn py-2 px-3 bg-white border-2 border-slate-200 rounded-lg text-xs font-medium text-slate-700">
+                        <i class="fas fa-calendar-week mr-1"></i>Weekly
+                    </button>
+                    <button type="button" class="frequency-btn py-2 px-3 bg-white border-2 border-slate-200 rounded-lg text-xs font-medium text-slate-700">
+                        <i class="fas fa-calendar-alt mr-1"></i>Monthly
+                    </button>
+                    <button type="button" class="frequency-btn py-2 px-3 bg-white border-2 border-slate-200 rounded-lg text-xs font-medium text-slate-700">
+                        <i class="fas fa-calendar mr-1"></i>Annually
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Notes Input -->
+        <div id="notes-input-section" class="mb-6">
+            <label class="block text-sm font-semibold text-slate-900 mb-2">Notes</label>
+            <textarea rows="3" class="w-full px-4 py-3 bg-white border-2 border-slate-200 rounded-xl text-sm font-medium text-slate-900 focus:outline-none focus:border-teal-600 resize-none" placeholder="Add notes...">Lunch with team</textarea>
+        </div>
+
+        <!-- Save Button -->
+        <div class="flex space-x-3 mb-20">
+            <button type="button" id="cancel-edit-btn" class="flex-1 py-3 bg-slate-100 text-slate-700 rounded-xl font-semibold text-sm">
+                Cancel
+            </button>
+            <button type="submit" class="flex-1 py-3 bg-teal-600 text-white rounded-xl font-semibold text-sm">
+                Save Changes
+            </button>
+        </div>
+    </form>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const viewMode = document.getElementById('view-mode');
+    const editMode = document.getElementById('edit-mode');
+    const toggleEditBtn = document.getElementById('toggle-edit-btn');
+    const cancelEditBtn = document.getElementById('cancel-edit-btn');
+    const recurringToggle = document.getElementById('recurring-toggle');
+    const recurringOptions = document.getElementById('recurring-options');
+    const categoryBtns = document.querySelectorAll('.category-btn');
+    const frequencyBtns = document.querySelectorAll('.frequency-btn');
+
+    toggleEditBtn.addEventListener('click', function() {
+        viewMode.classList.add('hidden');
+        editMode.classList.remove('hidden');
+        toggleEditBtn.innerHTML = '<i class="fas fa-times text-teal-600 text-base"></i>';
+    });
+
+    cancelEditBtn.addEventListener('click', function() {
+        editMode.classList.add('hidden');
+        viewMode.classList.remove('hidden');
+        toggleEditBtn.innerHTML = '<i class="fas fa-pen text-teal-600 text-base"></i>';
+    });
+
+    recurringToggle.addEventListener('click', function() {
+        this.classList.toggle('bg-teal-600');
+        this.classList.toggle('bg-slate-200');
+        const span = this.querySelector('span');
+        span.classList.toggle('translate-x-5');
+        recurringOptions.classList.toggle('hidden');
+    });
+
+    categoryBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            categoryBtns.forEach(b => {
+                b.classList.remove('bg-orange-100', 'border-orange-500', 'text-orange-600');
+                b.classList.add('bg-white', 'border-slate-200', 'text-slate-600');
+            });
+            this.classList.remove('bg-white', 'border-slate-200', 'text-slate-600');
+            this.classList.add('bg-orange-100', 'border-orange-500', 'text-orange-600');
+        });
+    });
+
+    frequencyBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            frequencyBtns.forEach(b => {
+                b.classList.remove('bg-teal-100', 'border-teal-600', 'text-teal-700');
+                b.classList.add('bg-white', 'border-slate-200', 'text-slate-700');
+            });
+            this.classList.remove('bg-white', 'border-slate-200', 'text-slate-700');
+            this.classList.add('bg-teal-100', 'border-teal-600', 'text-teal-700');
+        });
+    });
+
+    document.getElementById('edit-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        editMode.classList.add('hidden');
+        viewMode.classList.remove('hidden');
+        toggleEditBtn.innerHTML = '<i class="fas fa-pen text-teal-600 text-base"></i>';
+    });
+});
+</script>
+
+</body>
+</html>

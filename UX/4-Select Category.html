@@ -1,0 +1,370 @@
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Category</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      window.FontAwesomeConfig = {
+        autoReplaceSvg: 'nest'
+      };
+    </script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap"
+      rel="stylesheet">
+
+    <script>
+      tailwind.config = {
+        theme:
+        {
+          extend:
+          {
+            fontFamily:
+            {
+              'inter': ['Inter', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      ::-webkit-scrollbar
+      {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body class="font-inter bg-slate-50 min-h-screen">
+    <div id="mobile-container" class="max-w-md mx-auto bg-white min-h-screen">
+      <!-- Header -->
+      <header id="header"
+        class="bg-white border-b border-gray-100 px-4 py-4 flex items-center justify-between">
+        <button
+          class="p-2 -ml-2 rounded-full hover:bg-gray-100 transition-colors"><i
+            class="fa-solid fa-arrow-left text-gray-600 text-lg"></i></button>
+        <h1 class="text-lg font-semibold text-gray-800">Select Category</h1>
+        <button
+          class="text-sm font-medium text-blue-600 hover:text-blue-700 px-2 py-1">
+          Done
+        </button>
+      </header><!-- Layout Toggle -->
+      <div id="layout-toggle"
+        class="bg-white px-4 py-3 border-b border-gray-100">
+        <div class="flex items-center justify-between"><span
+            class="text-sm font-medium text-gray-600">View</span>
+          <div class="flex bg-gray-100 rounded-lg p-1"><button id="grid-toggle"
+              class="px-3 py-2 rounded-md bg-blue-600 text-white transition-all"><i
+                class="fa-solid fa-grid-2 text-sm"></i></button><button
+              id="list-toggle"
+              class="px-3 py-2 rounded-md text-gray-600 hover:text-gray-800 transition-all"><i
+                class="fa-solid fa-list text-sm"></i></button></div>
+        </div>
+      </div><!-- Search Bar -->
+      <div id="search-section" class="p-4 bg-white">
+        <div class="relative"><i
+            class="fa-solid fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm"></i><input
+            type="text" placeholder="Search categories..."
+            class="w-full pl-10 pr-4 py-3 text-base text-gray-800 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+        </div>
+      </div><!-- Main Content -->
+      <main id="main-content" class="p-4 pb-6">
+        <!-- Grid View -->
+        <div id="grid-view" class="grid grid-cols-3 gap-4"><button
+            class="category-item flex flex-col items-center p-4 rounded-xl bg-blue-50 border-2 border-blue-200 transition-all">
+            <div
+              class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mb-3">
+              <i class="fa-solid fa-utensils text-white text-lg"></i></div><span
+              class="text-sm font-medium text-blue-700">Food &amp; Dining</span>
+          </button><button
+            class="category-item flex flex-col items-center p-4 rounded-xl bg-gray-50 border-2 border-gray-200 hover:bg-gray-100 transition-all">
+            <div
+              class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mb-3">
+              <i class="fa-solid fa-car text-white text-lg"></i></div><span
+              class="text-sm font-medium text-gray-600">Transport</span>
+          </button><button
+            class="category-item flex flex-col items-center p-4 rounded-xl bg-gray-50 border-2 border-gray-200 hover:bg-gray-100 transition-all">
+            <div
+              class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center mb-3">
+              <i class="fa-solid fa-shopping-bag text-white text-lg"></i></div>
+            <span class="text-sm font-medium text-gray-600">Shopping</span>
+          </button><button
+            class="category-item flex flex-col items-center p-4 rounded-xl bg-gray-50 border-2 border-gray-200 hover:bg-gray-100 transition-all">
+            <div
+              class="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center mb-3">
+              <i class="fa-solid fa-home text-white text-lg"></i></div><span
+              class="text-sm font-medium text-gray-600">Home &amp; Garden</span>
+          </button><button
+            class="category-item flex flex-col items-center p-4 rounded-xl bg-gray-50 border-2 border-gray-200 hover:bg-gray-100 transition-all">
+            <div
+              class="w-12 h-12 bg-pink-500 rounded-full flex items-center justify-center mb-3">
+              <i class="fa-solid fa-gamepad text-white text-lg"></i></div><span
+              class="text-sm font-medium text-gray-600">Entertainment</span>
+          </button><button
+            class="category-item flex flex-col items-center p-4 rounded-xl bg-gray-50 border-2 border-gray-200 hover:bg-gray-100 transition-all">
+            <div
+              class="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center mb-3">
+              <i class="fa-solid fa-heartbeat text-white text-lg"></i></div>
+            <span class="text-sm font-medium text-gray-600">Health &amp;
+              Fitness</span>
+          </button><button
+            class="category-item flex flex-col items-center p-4 rounded-xl bg-gray-50 border-2 border-gray-200 hover:bg-gray-100 transition-all">
+            <div
+              class="w-12 h-12 bg-indigo-500 rounded-full flex items-center justify-center mb-3">
+              <i class="fa-solid fa-graduation-cap text-white text-lg"></i>
+            </div><span
+              class="text-sm font-medium text-gray-600">Education</span>
+          </button><button
+            class="category-item flex flex-col items-center p-4 rounded-xl bg-gray-50 border-2 border-gray-200 hover:bg-gray-100 transition-all">
+            <div
+              class="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center mb-3">
+              <i class="fa-solid fa-briefcase text-white text-lg"></i></div>
+            <span class="text-sm font-medium text-gray-600">Business</span>
+          </button><button
+            class="category-item flex flex-col items-center p-4 rounded-xl bg-gray-50 border-2 border-gray-200 hover:bg-gray-100 transition-all">
+            <div
+              class="w-12 h-12 bg-teal-500 rounded-full flex items-center justify-center mb-3">
+              <i class="fa-solid fa-plane text-white text-lg"></i></div><span
+              class="text-sm font-medium text-gray-600">Travel</span>
+          </button><button
+            class="category-item flex flex-col items-center p-4 rounded-xl bg-gray-50 border-2 border-gray-200 hover:bg-gray-100 transition-all">
+            <div
+              class="w-12 h-12 bg-cyan-500 rounded-full flex items-center justify-center mb-3">
+              <i class="fa-solid fa-gift text-white text-lg"></i></div><span
+              class="text-sm font-medium text-gray-600">Gifts &amp;
+              Donations</span>
+          </button><button
+            class="category-item flex flex-col items-center p-4 rounded-xl bg-gray-50 border-2 border-gray-200 hover:bg-gray-100 transition-all">
+            <div
+              class="w-12 h-12 bg-slate-500 rounded-full flex items-center justify-center mb-3">
+              <i class="fa-solid fa-chart-line text-white text-lg"></i></div>
+            <span class="text-sm font-medium text-gray-600">Investments</span>
+          </button></div><!-- List View -->
+        <div id="list-view" class="hidden space-y-2"><button
+            class="category-list-item w-full flex items-center p-4 rounded-xl bg-blue-50 border-2 border-blue-200 transition-all">
+            <div
+              class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mr-4">
+              <i class="fa-solid fa-utensils text-white text-lg"></i></div>
+            <div class="flex-1 text-left">
+              <h3 class="text-base font-medium text-blue-700">Food &amp; Dining
+              </h3>
+              <p class="text-sm text-blue-600">Restaurants, groceries, coffee
+              </p>
+            </div><i class="fa-solid fa-check text-blue-600 text-lg"></i>
+          </button><button
+            class="category-list-item w-full flex items-center p-4 rounded-xl bg-white border border-gray-200 hover:bg-gray-50 transition-all">
+            <div
+              class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mr-4">
+              <i class="fa-solid fa-car text-white text-lg"></i></div>
+            <div class="flex-1 text-left">
+              <h3 class="text-base font-medium text-gray-800">Transport</h3>
+              <p class="text-sm text-gray-500">Gas, parking, public transport
+              </p>
+            </div>
+          </button><button
+            class="category-list-item w-full flex items-center p-4 rounded-xl bg-white border border-gray-200 hover:bg-gray-50 transition-all">
+            <div
+              class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center mr-4">
+              <i class="fa-solid fa-shopping-bag text-white text-lg"></i></div>
+            <div class="flex-1 text-left">
+              <h3 class="text-base font-medium text-gray-800">Shopping</h3>
+              <p class="text-sm text-gray-500">Clothing, electronics, books</p>
+            </div>
+          </button><button
+            class="category-list-item w-full flex items-center p-4 rounded-xl bg-white border border-gray-200 hover:bg-gray-50 transition-all">
+            <div
+              class="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center mr-4">
+              <i class="fa-solid fa-home text-white text-lg"></i></div>
+            <div class="flex-1 text-left">
+              <h3 class="text-base font-medium text-gray-800">Home &amp; Garden
+              </h3>
+              <p class="text-sm text-gray-500">Rent, utilities, maintenance</p>
+            </div>
+          </button><button
+            class="category-list-item w-full flex items-center p-4 rounded-xl bg-white border border-gray-200 hover:bg-gray-50 transition-all">
+            <div
+              class="w-12 h-12 bg-pink-500 rounded-full flex items-center justify-center mr-4">
+              <i class="fa-solid fa-gamepad text-white text-lg"></i></div>
+            <div class="flex-1 text-left">
+              <h3 class="text-base font-medium text-gray-800">Entertainment</h3>
+              <p class="text-sm text-gray-500">Movies, games, subscriptions</p>
+            </div>
+          </button><button
+            class="category-list-item w-full flex items-center p-4 rounded-xl bg-white border border-gray-200 hover:bg-gray-50 transition-all">
+            <div
+              class="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center mr-4">
+              <i class="fa-solid fa-heartbeat text-white text-lg"></i></div>
+            <div class="flex-1 text-left">
+              <h3 class="text-base font-medium text-gray-800">Health &amp;
+                Fitness</h3>
+              <p class="text-sm text-gray-500">Doctor visits, gym, supplements
+              </p>
+            </div>
+          </button><button
+            class="category-list-item w-full flex items-center p-4 rounded-xl bg-white border border-gray-200 hover:bg-gray-50 transition-all">
+            <div
+              class="w-12 h-12 bg-indigo-500 rounded-full flex items-center justify-center mr-4">
+              <i class="fa-solid fa-graduation-cap text-white text-lg"></i>
+            </div>
+            <div class="flex-1 text-left">
+              <h3 class="text-base font-medium text-gray-800">Education</h3>
+              <p class="text-sm text-gray-500">Courses, books, training</p>
+            </div>
+          </button><button
+            class="category-list-item w-full flex items-center p-4 rounded-xl bg-white border border-gray-200 hover:bg-gray-50 transition-all">
+            <div
+              class="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center mr-4">
+              <i class="fa-solid fa-briefcase text-white text-lg"></i></div>
+            <div class="flex-1 text-left">
+              <h3 class="text-base font-medium text-gray-800">Business</h3>
+              <p class="text-sm text-gray-500">Office supplies, meetings</p>
+            </div>
+          </button><button
+            class="category-list-item w-full flex items-center p-4 rounded-xl bg-white border border-gray-200 hover:bg-gray-50 transition-all">
+            <div
+              class="w-12 h-12 bg-teal-500 rounded-full flex items-center justify-center mr-4">
+              <i class="fa-solid fa-plane text-white text-lg"></i></div>
+            <div class="flex-1 text-left">
+              <h3 class="text-base font-medium text-gray-800">Travel</h3>
+              <p class="text-sm text-gray-500">Flights, hotels, vacation</p>
+            </div>
+          </button><button
+            class="category-list-item w-full flex items-center p-4 rounded-xl bg-white border border-gray-200 hover:bg-gray-50 transition-all">
+            <div
+              class="w-12 h-12 bg-cyan-500 rounded-full flex items-center justify-center mr-4">
+              <i class="fa-solid fa-gift text-white text-lg"></i></div>
+            <div class="flex-1 text-left">
+              <h3 class="text-base font-medium text-gray-800">Gifts &amp;
+                Donations</h3>
+              <p class="text-sm text-gray-500">Presents, charity, tips</p>
+            </div>
+          </button><button
+            class="category-list-item w-full flex items-center p-4 rounded-xl bg-white border border-gray-200 hover:bg-gray-50 transition-all">
+            <div
+              class="w-12 h-12 bg-slate-500 rounded-full flex items-center justify-center mr-4">
+              <i class="fa-solid fa-chart-line text-white text-lg"></i></div>
+            <div class="flex-1 text-left">
+              <h3 class="text-base font-medium text-gray-800">Investments</h3>
+              <p class="text-sm text-gray-500">Stocks, bonds, crypto</p>
+            </div>
+          </button><button
+            class="category-list-item w-full flex items-center p-4 rounded-xl bg-white border border-gray-200 hover:bg-gray-50 transition-all">
+            <div
+              class="w-12 h-12 bg-gray-400 rounded-full flex items-center justify-center mr-4">
+              <i class="fa-solid fa-plus text-white text-lg"></i></div>
+            <div class="flex-1 text-left">
+              <h3 class="text-base font-medium text-gray-800">Other</h3>
+              <p class="text-sm text-gray-500">Miscellaneous expenses</p>
+            </div>
+          </button></div>
+      </main>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function()
+      {
+        const gridToggle = document.getElementById('grid-toggle');
+        const listToggle = document.getElementById('list-toggle');
+        const gridView = document.getElementById('grid-view');
+        const listView = document.getElementById('list-view');
+
+        // Toggle between grid and list views
+        gridToggle.addEventListener('click', function()
+        {
+          gridToggle.classList.add('bg-blue-600', 'text-white');
+          gridToggle.classList.remove('text-gray-600');
+          listToggle.classList.remove('bg-blue-600', 'text-white');
+          listToggle.classList.add('text-gray-600');
+
+          gridView.classList.remove('hidden');
+          listView.classList.add('hidden');
+        });
+
+        listToggle.addEventListener('click', function()
+        {
+          listToggle.classList.add('bg-blue-600', 'text-white');
+          listToggle.classList.remove('text-gray-600');
+          gridToggle.classList.remove('bg-blue-600', 'text-white');
+          gridToggle.classList.add('text-gray-600');
+
+          listView.classList.remove('hidden');
+          gridView.classList.add('hidden');
+        });
+
+        // Category selection for grid view
+        const categoryItems = document.querySelectorAll('.category-item');
+        categoryItems.forEach(item =>
+        {
+          item.addEventListener('click', function()
+          {
+            categoryItems.forEach(cat =>
+            {
+              cat.classList.remove('bg-blue-50',
+                'border-blue-200');
+              cat.classList.add('bg-gray-50',
+              'border-gray-200');
+              const text = cat.querySelector('span');
+              text.classList.remove('text-blue-700');
+              text.classList.add('text-gray-600');
+            });
+
+            this.classList.remove('bg-gray-50', 'border-gray-200');
+            this.classList.add('bg-blue-50', 'border-blue-200');
+            const text = this.querySelector('span');
+            text.classList.remove('text-gray-600');
+            text.classList.add('text-blue-700');
+          });
+        });
+
+        // Category selection for list view
+        const categoryListItems = document.querySelectorAll(
+          '.category-list-item');
+        categoryListItems.forEach(item =>
+        {
+          item.addEventListener('click', function()
+          {
+            categoryListItems.forEach(cat =>
+            {
+              cat.classList.remove('bg-blue-50',
+                'border-blue-200');
+              cat.classList.add('bg-white', 'border-gray-200');
+              const title = cat.querySelector('h3');
+              const desc = cat.querySelector('p');
+              const check = cat.querySelector('.fa-check');
+              title.classList.remove('text-blue-700');
+              title.classList.add('text-gray-800');
+              desc.classList.remove('text-blue-600');
+              desc.classList.add('text-gray-500');
+              if (check) check.remove();
+            });
+
+            this.classList.remove('bg-white', 'border-gray-200');
+            this.classList.add('bg-blue-50', 'border-blue-200');
+            const title = this.querySelector('h3');
+            const desc = this.querySelector('p');
+            title.classList.remove('text-gray-800');
+            title.classList.add('text-blue-700');
+            desc.classList.remove('text-gray-500');
+            desc.classList.add('text-blue-600');
+
+            if (!this.querySelector('.fa-check'))
+            {
+              const checkIcon = document.createElement('i');
+              checkIcon.className =
+                'fa-solid fa-check text-blue-600 text-lg';
+              this.appendChild(checkIcon);
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+
+</html>

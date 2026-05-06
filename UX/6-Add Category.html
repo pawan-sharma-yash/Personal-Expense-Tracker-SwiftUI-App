@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Category</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script> window.FontAwesomeConfig = { autoReplaceSvg: 'nest'};</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { display: none;}
+        .toast {
+            transform: translateY(-100%);
+            opacity: 0;
+            transition: all 0.3s ease-out;
+        }
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 12px;
+        }
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 8px;
+        }
+    </style>
+</head>
+<body class="font-inter bg-slate-50">
+
+    <div id="mobile-container" class="max-w-md mx-auto bg-white min-h-screen relative">
+        
+        <header id="header" class="bg-white border-b border-gray-100 px-4 py-4 flex items-center justify-between sticky top-0 z-20">
+            <button id="back-btn" class="p-2 -ml-2 rounded-full hover:bg-gray-100 transition-colors">
+                <i class="fa-solid fa-arrow-left text-gray-700 text-lg"></i>
+            </button>
+            <h1 class="text-lg font-semibold text-gray-900">Add Category</h1>
+            <div class="w-8"></div>
+        </header>
+
+        <div id="toast" class="toast fixed top-20 left-4 right-4 max-w-md mx-auto z-30 p-4 rounded-xl shadow-lg">
+            <div class="flex items-center gap-3">
+                <div id="toast-icon" class="w-8 h-8 rounded-full flex items-center justify-center">
+                    <i class="text-white text-sm"></i>
+                </div>
+                <span id="toast-message" class="text-white font-medium text-sm"></span>
+            </div>
+        </div>
+
+        <main id="main-content" class="pb-6">
+            
+            <form id="category-form" class="px-4 py-6">
+                
+                <section id="preview-section" class="mb-8">
+                    <h2 class="text-sm font-semibold text-gray-900 mb-4">Preview</h2>
+                    <div class="flex items-center gap-3 p-4 bg-gray-50 rounded-xl">
+                        <div id="preview-icon" class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center">
+                            <i class="fa-solid fa-question text-white"></i>
+                        </div>
+                        <div>
+                            <div id="preview-name" class="text-base font-semibold text-gray-900">Category Name</div>
+                            <div class="text-sm text-gray-500">New category</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="name-section" class="mb-8">
+                    <label for="category-name" class="block text-sm font-semibold text-gray-900 mb-3">Category Name</label>
+                    <input 
+                        type="text" 
+                        id="category-name" 
+                        name="categoryName"
+                        placeholder="Enter category name"
+                        maxlength="25"
+                        class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                        required
+                    >
+                    <div class="flex justify-between items-center mt-2">
+                        <span class="text-xs text-gray-500">Choose a descriptive name</span>
+                        <span id="char-count" class="text-xs text-gray-400">0/25</span>
+                    </div>
+                </section>
+
+                <section id="icon-section" class="mb-8">
+                    <label class="block text-sm font-semibold text-gray-900 mb-3">Choose Icon</label>
+                    <div class="icon-grid">
+                        <button type="button" class="icon-btn w-12 h-12 bg-gray-100 hover:bg-gray-200 rounded-xl flex items-center justify-center transition-all" data-icon="fa-utensils">
+                            <i class="fa-solid fa-utensils text-gray-600"></i>
+                        </button>
+                        <button type="button" class="icon-btn w-12 h-12 bg-gray-100 hover:bg-gray-200 rounded-xl flex items-center justify-center transition-all" data-icon="fa-car">
+                            <i class="fa-solid fa-car text-gray-600"></i>
+                        </button>
+                        <button type="button" class="icon-btn w-12 h-12 bg-gray-100 hover:bg-gray-200 rounded-xl flex items-center justify-center transition-all" data-icon="fa-shopping-bag">
+                            <i class="fa-solid fa-shopping-bag text-gray-600"></i>
+                        </button>
+                        <button type="button" class="icon-btn w-12 h-12 bg-gray-100 hover:bg-gray-200 rounded-xl flex items-center justify-center transition-all" data-icon="fa-home">
+                            <i class="fa-solid fa-home text-gray-600"></i>
+                        </button>
+                        <button type="button" class="icon-btn w-12 h-12 bg-gray-100 hover:bg-gray-200 rounded-xl flex items-center justify-center transition-all" data-icon="fa-gamepad">
+                            <i class="fa-solid fa-gamepad text-gray-600"></i>
+                        </button>
+                        <button type="button" class="icon-btn w-12 h-12 bg-gray-100 hover:bg-gray-200 rounded-xl flex items-center justify-center transition-all" data-icon="fa-heartbeat">
+                            <i class="fa-solid fa-heartbeat text-gray-600"></i>
+                        </button>
+                        <button type="button" class="icon-btn w-12 h-12 bg-gray-100 hover:bg-gray-200 rounded-xl flex items-center justify-center transition-all" data-icon="fa-plane">
+                            <i class="fa-solid fa-plane text-gray-600"></i>
+                        </button>
+                        <button type="button" class="icon-btn w-12 h-12 bg-gray-100 hover:bg-gray-200 rounded-xl flex items-center justify-center transition-all" data-icon="fa-graduation-cap">
+                            <i class="fa-solid fa-graduation-cap text-gray-600"></i>
+                        </button>
+                        <button type="button" class="icon-btn w-12 h-12 bg-gray-100 hover:bg-gray-200 rounded-xl flex items-center justify-center transition-all" data-icon="fa-dumbbell">
+                            <i class="fa-solid fa-dumbbell text-gray-600"></i>
+                        </button>
+                        <button type="button" class="icon-btn w-12 h-12 bg-gray-100 hover:bg-gray-200 rounded-xl flex items-center justify-center transition-all" data-icon="fa-paw">
+                            <i class="fa-solid fa-paw text-gray-600"></i>
+                        </button>
+                        <button type="button" class="icon-btn w-12 h-12 bg-gray-100 hover:bg-gray-200 rounded-xl flex items-center justify-center transition-all" data-icon="fa-briefcase">
+                            <i class="fa-solid fa-briefcase text-gray-600"></i>
+                        </button>
+                        <button type="button" class="icon-btn w-12 h-12 bg-gray-100 hover:bg-gray-200 rounded-xl flex items-center justify-center transition-all" data-icon="fa-gift">
+                            <i class="fa-solid fa-gift text-gray-600"></i>
+                        </button>
+                        <button type="button" class="icon-btn w-12 h-12 bg-gray-100 hover:bg-gray-200 rounded-xl flex items-center justify-center transition-all" data-icon="fa-music">
+                            <i class="fa-solid fa-music text-gray-600"></i>
+                        </button>
+                        <button type="button" class="icon-btn w-12 h-12 bg-gray-100 hover:bg-gray-200 rounded-xl flex items-center justify-center transition-all" data-icon="fa-book">
+                            <i class="fa-solid fa-book text-gray-600"></i>
+                        </button>
+                        <button type="button" class="icon-btn w-12 h-12 bg-gray-100 hover:bg-gray-200 rounded-xl flex items-center justify-center transition-all" data-icon="fa-coffee">
+                            <i class="fa-solid fa-coffee text-gray-600"></i>
+                        </button>
+                        <button type="button" class="icon-btn w-12 h-12 bg-gray-100 hover:bg-gray-200 rounded-xl flex items-center justify-center transition-all" data-icon="fa-tools">
+                            <i class="fa-solid fa-tools text-gray-600"></i>
+                        </button>
+                        <button type="button" class="icon-btn w-12 h-12 bg-gray-100 hover:bg-gray-200 rounded-xl flex items-center justify-center transition-all" data-icon="fa-phone">
+                            <i class="fa-solid fa-phone text-gray-600"></i>
+                        </button>
+                        <button type="button" class="icon-btn w-12 h-12 bg-gray-100 hover:bg-gray-200 rounded-xl flex items-center justify-center transition-all" data-icon="fa-camera">
+                            <i class="fa-solid fa-camera text-gray-600"></i>
+                        </button>
+                    </div>
+                </section>
+
+                <section id="color-section" class="mb-8">
+                    <label class="block text-sm font-semibold text-gray-900 mb-3">Choose Color</label>
+                    <div class="color-grid">
+                        <button type="button" class="color-btn w-10 h-10 bg-blue-500 rounded-full border-2 border-transparent hover:border-gray-300 transition-all" data-color="bg-blue-500"></button>
+                        <button type="button" class="color-btn w-10 h-10 bg-purple-500 rounded-full border-2 border-transparent hover:border-gray-300 transition-all" data-color="bg-purple-500"></button>
+                        <button type="button" class="color-btn w-10 h-10 bg-pink-500 rounded-full border-2 border-transparent hover:border-gray-300 transition-all" data-color="bg-pink-500"></button>
+                        <button type="button" class="color-btn w-10 h-10 bg-red-500 rounded-full border-2 border-transparent hover:border-gray-300 transition-all" data-color="bg-red-500"></button>
+                        <button type="button" class="color-btn w-10 h-10 bg-orange-500 rounded-full border-2 border-transparent hover:border-gray-300 transition-all" data-color="bg-orange-500"></button>
+                        <button type="button" class="color-btn w-10 h-10 bg-yellow-500 rounded-full border-2 border-transparent hover:border-gray-300 transition-all" data-color="bg-yellow-500"></button>
+                        <button type="button" class="color-btn w-10 h-10 bg-green-500 rounded-full border-2 border-transparent hover:border-gray-300 transition-all" data-color="bg-green-500"></button>
+                        <button type="button" class="color-btn w-10 h-10 bg-teal-500 rounded-full border-2 border-transparent hover:border-gray-300 transition-all" data-color="bg-teal-500"></button>
+                        <button type="button" class="color-btn w-10 h-10 bg-indigo-500 rounded-full border-2 border-transparent hover:border-gray-300 transition-all" data-color="bg-indigo-500"></button>
+                        <button type="button" class="color-btn w-10 h-10 bg-slate-500 rounded-full border-2 border-transparent hover:border-gray-300 transition-all" data-color="bg-slate-500"></button>
+                        <button type="button" class="color-btn w-10 h-10 bg-gray-500 rounded-full border-2 border-transparent hover:border-gray-300 transition-all" data-color="bg-gray-500"></button>
+                        <button type="button" class="color-btn w-10 h-10 bg-zinc-500 rounded-full border-2 border-transparent hover:border-gray-300 transition-all" data-color="bg-zinc-500"></button>
+                        <button type="button" class="color-btn w-10 h-10 bg-emerald-500 rounded-full border-2 border-transparent hover:border-gray-300 transition-all" data-color="bg-emerald-500"></button>
+                        <button type="button" class="color-btn w-10 h-10 bg-cyan-500 rounded-full border-2 border-transparent hover:border-gray-300 transition-all" data-color="bg-cyan-500"></button>
+                        <button type="button" class="color-btn w-10 h-10 bg-sky-500 rounded-full border-2 border-transparent hover:border-gray-300 transition-all" data-color="bg-sky-500"></button>
+                        <button type="button" class="color-btn w-10 h-10 bg-violet-500 rounded-full border-2 border-transparent hover:border-gray-300 transition-all" data-color="bg-violet-500"></button>
+                    </div>
+                </section>
+
+                <section id="submit-section" class="pt-4">
+                    <button 
+                        type="submit" 
+                        id="create-btn"
+                        class="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-4 px-6 rounded-xl transition-all disabled:bg-gray-300 disabled:cursor-not-allowed"
+                    >
+                        Create Category
+                    </button>
+                </section>
+
+            </form>
+
+        </main>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('category-form');
+            const nameInput = document.getElementById('category-name');
+            const charCount = document.getElementById('char-count');
+            const previewIcon = document.getElementById('preview-icon');
+            const previewName = document.getElementById('preview-name');
+            const iconButtons = document.querySelectorAll('.icon-btn');
+            const colorButtons = document.querySelectorAll('.color-btn');
+            const createBtn = document.getElementById('create-btn');
+            const toast = document.getElementById('toast');
+            const toastIcon = document.getElementById('toast-icon');
+            const toastMessage = document.getElementById('toast-message');
+
+            let selectedIcon = 'fa-question';
+            let selectedColor = 'bg-blue-500';
+
+            nameInput.addEventListener('input', function() {
+                const length = this.value.length;
+                charCount.textContent = `${length}/25`;
+                previewName.textContent = this.value || 'Category Name';
+                
+                if (length > 20) {
+                    charCount.classList.add('text-red-500');
+                    charCount.classList.remove('text-gray-400');
+                } else {
+                    charCount.classList.remove('text-red-500');
+                    charCount.classList.add('text-gray-400');
+                }
+            });
+
+            iconButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    iconButtons.forEach(b => {
+                        b.classList.remove('bg-blue-100', 'border-blue-500');
+                        b.classList.add('bg-gray-100');
+                    });
+                    
+                    this.classList.remove('bg-gray-100');
+                    this.classList.add('bg-blue-100', 'border-blue-500');
+                    
+                    selectedIcon = this.dataset.icon;
+                    updatePreview();
+                });
+            });
+
+            colorButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    colorButtons.forEach(b => {
+                        b.classList.remove('ring-4', 'ring-gray-300');
+                    });
+                    
+                    this.classList.add('ring-4', 'ring-gray-300');
+                    
+                    selectedColor = this.dataset.color;
+                    updatePreview();
+                });
+            });
+
+            function updatePreview() {
+                previewIcon.className = `w-12 h-12 ${selectedColor} rounded-full flex items-center justify-center`;
+                previewIcon.querySelector('i').className = `fa-solid ${selectedIcon} text-white`;
+            }
+
+            function showToast(message, type = 'success') {
+                const isSuccess = type === 'success';
+                
+                toast.className = `toast fixed top-20 left-4 right-4 max-w-md mx-auto z-30 p-4 rounded-xl shadow-lg ${isSuccess ? 'bg-green-500' : 'bg-red-500'}`;
+                
+                toastIcon.className = `w-8 h-8 ${isSuccess ? 'bg-green-600' : 'bg-red-600'} rounded-full flex items-center justify-center`;
+                toastIcon.querySelector('i').className = `fa-solid ${isSuccess ? 'fa-check' : 'fa-times'} text-white text-sm`;
+                
+                toastMessage.textContent = message;
+                
+                toast.classList.add('show');
+                
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 3000);
+            }
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const categoryName = nameInput.value.trim();
+                
+                if (!categoryName) {
+                    showToast('Please enter a category name', 'error');
+                    return;
+                }
+                
+                if (categoryName.length < 2) {
+                    showToast('Category name must be at least 2 characters', 'error');
+                    return;
+                }
+                
+                createBtn.disabled = true;
+                createBtn.textContent = 'Creating...';
+                
+                setTimeout(() => {
+                    const existingCategories = ['Food & Dining', 'Transport', 'Shopping', 'Home', 'Entertainment', 'Health'];
+                    
+                    if (existingCategories.some(cat => cat.toLowerCase() === categoryName.toLowerCase())) {
+                        showToast('Category already exists', 'error');
+                        createBtn.disabled = false;
+                        createBtn.textContent = 'Create Category';
+                        return;
+                    }
+                    
+                    const success = Math.random() > 0.2;
+                    
+                    if (success) {
+                        showToast('Category created successfully!', 'success');
+                        
+                        setTimeout(() => {
+                            form.reset();
+                            charCount.textContent = '0/25';
+                            previewName.textContent = 'Category Name';
+                            selectedIcon = 'fa-question';
+                            selectedColor = 'bg-blue-500';
+                            updatePreview();
+                            
+                            iconButtons.forEach(b => {
+                                b.classList.remove('bg-blue-100', 'border-blue-500');
+                                b.classList.add('bg-gray-100');
+                            });
+                            
+                            colorButtons.forEach(b => {
+                                b.classList.remove('ring-4', 'ring-gray-300');
+                            });
+                        }, 1000);
+                    } else {
+                        showToast('Failed to create category. Please try again.', 'error');
+                    }
+                    
+                    createBtn.disabled = false;
+                    createBtn.textContent = 'Create Category';
+                }, 1000);
+            });
+
+            iconButtons[0].click();
+            colorButtons[0].click();
+        });
+    </script>
+
+</body>
+</html>
