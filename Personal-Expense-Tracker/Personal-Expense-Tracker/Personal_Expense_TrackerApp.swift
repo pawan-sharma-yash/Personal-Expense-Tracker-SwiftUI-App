@@ -17,7 +17,7 @@ struct Personal_Expense_TrackerApp: App {
 
 	var body: some Scene {
 		WindowGroup {
-			RecentTransactionsView()
+			BottomTabView()
 				.environment(RouterPath())
 		}
 	}
