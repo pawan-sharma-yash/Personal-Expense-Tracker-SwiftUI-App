@@ -37,7 +37,7 @@ struct RecentTransactionsView: View {
 
 					Button(recentTransactionsViewModel.emptyState.actionTitle) {
 						// Mutate the environment router path to navigate
-						routerPath.path.append(.addNewTransaction)
+						navigateToAddTrasaction()
 					}
 					.buttonStyle(DS.Components.PrimaryButtonStyle())
 					.padding(.top, DS.Metrics.Spacing.s)
@@ -51,7 +51,7 @@ struct RecentTransactionsView: View {
 			.navigationBarTitleDisplayMode(.inline)
 			.toolbar {
 				Button {
-					routerPath.path.append(.addNewTransaction)
+					navigateToAddTrasaction()
 				} label: {
 					Circle()
 						.fill(Color.white)
@@ -64,6 +64,12 @@ struct RecentTransactionsView: View {
 				}
 			}
 		}
+	}
+}
+
+private extension RecentTransactionsView {
+	func navigateToAddTrasaction() {
+		routerPath.path.append(.addNewTransaction)
 	}
 }
 
