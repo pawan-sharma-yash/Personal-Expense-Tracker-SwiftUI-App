@@ -24,26 +24,32 @@ struct RecentTransactionsView: View {
 				}
 				.pickerStyle(.segmented)
 
-				Spacer()
+				if recentTransactionsViewModel.recentTransactions.isEmpty {
+					Spacer()
 
-				VStack(spacing: DS.Metrics.Spacing.s) {
-					Text(recentTransactionsViewModel.emptyState.message)
-						.font(DS.Typography.headline)
-						.foregroundStyle(DS.ColorToken.textPrimary)
+					VStack(spacing: DS.Metrics.Spacing.s) {
+						Text(recentTransactionsViewModel.emptyState.message)
+							.font(DS.Typography.headline)
+							.foregroundStyle(DS.ColorToken.textPrimary)
 
-					Text(recentTransactionsViewModel.emptyState.subTitle)
-						.font(DS.Typography.caption)
-						.foregroundStyle(DS.ColorToken.textSecondary)
+						Text(recentTransactionsViewModel.emptyState.subTitle)
+							.font(DS.Typography.caption)
+							.foregroundStyle(DS.ColorToken.textSecondary)
 
-					Button(recentTransactionsViewModel.emptyState.actionTitle) {
-						// Mutate the environment router path to navigate
-						navigateToAddTrasaction()
+						Button(recentTransactionsViewModel.emptyState.actionTitle) {
+							// Mutate the environment router path to navigate
+							navigateToAddTrasaction()
+						}
+						.buttonStyle(DS.Components.PrimaryButtonStyle())
+						.padding(.top, DS.Metrics.Spacing.s)
 					}
-					.buttonStyle(DS.Components.PrimaryButtonStyle())
-					.padding(.top, DS.Metrics.Spacing.s)
+					.dsCard()
+					Spacer()
+				} else {
+					List(recentTransactionsViewModel.recentTransactions, id: \.self.id) { discipline in
+						Text(discipline.title)
+					}
 				}
-				.dsCard()
-				Spacer()
 			}
 			.padding(DS.Metrics.Spacing.m)
 			.withAppRouter()
