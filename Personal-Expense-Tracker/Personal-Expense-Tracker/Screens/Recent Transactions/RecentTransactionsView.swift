@@ -23,7 +23,7 @@ struct RecentTransactionsView: View {
 					}
 				}
 				.pickerStyle(.segmented)
-				Spacer()
+				Spacer(minLength: 12.0)
 				if recentTransactionsViewModel.recentTransactions.isEmpty {
 					VStack(spacing: DS.Metrics.Spacing.s) {
 						Text(recentTransactionsViewModel.emptyState.message)
@@ -51,7 +51,7 @@ struct RecentTransactionsView: View {
 						.padding(.horizontal, 12)
 						.background(
 							RoundedRectangle(cornerRadius: 12)
-								.fill(Color(.systemBackground))
+								.fill(Color(red: 249 / 255, green: 250 / 255, blue: 252 / 255))
 								.shadow(color: Color.black.opacity(0.03), radius: 1, x: 0, y: 1)
 						)
 						.overlay(

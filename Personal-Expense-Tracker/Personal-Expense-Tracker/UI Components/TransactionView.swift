@@ -34,7 +34,6 @@ struct TransactionView: View {
 					.font(.subheadline)
 					.foregroundColor(.secondary)
 			}
-			.layoutPriority(1)
 
 			Spacer()
 
