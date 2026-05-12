@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Category Deep Dive</title>
+    <title>Select List</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script> window.FontAwesomeConfig = { autoReplaceSvg: 'nest'};</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.plot.ly/plotly-3.1.1.min.js"></script>
-    
+
     <script>
         tailwind.config = {
             theme: {
@@ -45,7 +45,7 @@
 <body class="font-inter bg-slate-50">
 
     <div id="mobile-container" class="max-w-md mx-auto bg-white min-h-screen relative">
-        
+
         <header id="header" class="bg-white border-b border-gray-100 px-4 py-4 flex items-center justify-between sticky top-0 z-20">
             <button class="p-2 -ml-2 rounded-full hover:bg-gray-100 transition-colors">
                 <i class="fa-solid fa-arrow-left text-gray-700 text-lg"></i>
@@ -57,7 +57,7 @@
         </header>
 
         <main id="main-content" class="pb-6">
-            
+
             <section id="filter-section" class="px-4 pt-4 pb-3">
                 <div class="flex items-center gap-2 overflow-x-auto pb-2">
                     <button class="filter-btn active px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors bg-blue-600 text-white" data-filter="monthly">
@@ -75,7 +75,7 @@
                     </button>
                 </div>
             </section>
-            
+
             <section id="summary-section" class="px-4 pt-6 pb-4">
                 <div class="flex items-baseline justify-between mb-2">
                     <h2 class="text-2xl font-bold text-gray-900">$2,847.50</h2>
@@ -96,7 +96,7 @@
 
             <section id="legend-section" class="px-4 py-4">
                 <h3 class="text-sm font-semibold text-gray-900 mb-3">Categories</h3>
-                
+
                 <div id="legend-item-food" class="flex items-center justify-between p-3 mb-2 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors cursor-pointer">
                     <div class="flex items-center gap-3">
                         <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center">
@@ -248,7 +248,7 @@
 
         <div class="overflow-y-auto px-4 py-4" style="max-height: calc(70vh - 160px);">
             <div id="transactions-list">
-                
+
                 <div class="flex items-center justify-between py-3 border-b border-gray-100">
                     <div class="flex items-center gap-3">
                         <div class="w-11 h-11 bg-blue-50 rounded-full flex items-center justify-center">
@@ -343,7 +343,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="px-4 py-6">
             <div class="mb-4">
                 <label class="block text-sm font-semibold text-gray-700 mb-2">Start Date</label>
@@ -431,14 +431,14 @@
             filterBtns.forEach(btn => {
                 btn.addEventListener('click', function() {
                     if (this.id === 'custom-range-btn') return;
-                    
+
                     filterBtns.forEach(b => {
                         b.classList.remove('active', 'bg-blue-600', 'text-white');
                         b.classList.add('bg-gray-100', 'text-gray-700');
                     });
                     this.classList.add('active', 'bg-blue-600', 'text-white');
                     this.classList.remove('bg-gray-100', 'text-gray-700');
-                    
+
                     const filter = this.getAttribute('data-filter');
                     if (filter === 'weekly') {
                         periodLabel.textContent = 'This Week';
@@ -464,19 +464,19 @@
             applyDateRange.addEventListener('click', function() {
                 const startDate = document.getElementById('start-date').value;
                 const endDate = document.getElementById('end-date').value;
-                
+
                 if (startDate && endDate) {
                     const start = new Date(startDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
                     const end = new Date(endDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
                     periodLabel.textContent = `${start} - ${end}`;
-                    
+
                     filterBtns.forEach(b => {
                         b.classList.remove('active', 'bg-blue-600', 'text-white');
                         b.classList.add('bg-gray-100', 'text-gray-700');
                     });
                     customRangeBtn.classList.add('active', 'bg-blue-600', 'text-white');
                     customRangeBtn.classList.remove('bg-gray-100', 'text-gray-700');
-                    
+
                     overlay.classList.remove('active');
                     dateRangeSheet.classList.remove('active');
                 }
