@@ -23,10 +23,8 @@ struct RecentTransactionsView: View {
 					}
 				}
 				.pickerStyle(.segmented)
-
+				Spacer()
 				if recentTransactionsViewModel.recentTransactions.isEmpty {
-					Spacer()
-
 					VStack(spacing: DS.Metrics.Spacing.s) {
 						Text(recentTransactionsViewModel.emptyState.message)
 							.font(DS.Typography.headline)
@@ -37,7 +35,6 @@ struct RecentTransactionsView: View {
 							.foregroundStyle(DS.ColorToken.textSecondary)
 
 						Button(recentTransactionsViewModel.emptyState.actionTitle) {
-							// Mutate the environment router path to navigate
 							navigateToAddTrasaction()
 						}
 						.buttonStyle(DS.Components.PrimaryButtonStyle())
@@ -46,9 +43,23 @@ struct RecentTransactionsView: View {
 					.dsCard()
 					Spacer()
 				} else {
-					List(recentTransactionsViewModel.recentTransactions, id: \.self.id) { discipline in
-						Text(discipline.title)
+					List(recentTransactionsViewModel.recentTransactions) { tx in
+						TransactionView(title: tx.title, transactionDate: tx.date.description, amount: tx.amount)
+						.listRowSeparator(.hidden)
+						.listRowInsets(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
+						.padding(.vertical, 12)
+						.padding(.horizontal, 12)
+						.background(
+							RoundedRectangle(cornerRadius: 12)
+								.fill(Color(.systemBackground))
+								.shadow(color: Color.black.opacity(0.03), radius: 1, x: 0, y: 1)
+						)
+						.overlay(
+							RoundedRectangle(cornerRadius: 12)
+								.stroke(Color(.systemGray5), lineWidth: 1)
+						)
 					}
+					.listStyle(.plain)
 				}
 			}
 			.padding(DS.Metrics.Spacing.m)
@@ -76,8 +87,4 @@ private extension RecentTransactionsView {
 	func navigateToAddTrasaction() {
 		routerPath.path.append(.addNewTransaction)
 	}
-}
-
-#Preview {
-	RecentTransactionsView()
 }
