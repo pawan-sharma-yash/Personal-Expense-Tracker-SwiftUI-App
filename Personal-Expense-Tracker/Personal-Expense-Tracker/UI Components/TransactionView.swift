@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import DesignSystem
 
 struct TransactionView: View {
 	let title: String
 	let transactionDate: String
+	let amount: Decimal
 
 	var body: some View {
 		HStack(spacing: 12) {
@@ -37,9 +39,17 @@ struct TransactionView: View {
 			Spacer()
 
 			// Amount
-			Text(String(format: "-$%.2f", abs(400)))
+			Text(amount.formatted(.currency(code: "USD")))
 				.font(.headline)
 				.foregroundColor(.red)
 		}
 	}
+}
+
+#Preview {
+	TransactionView(
+		title: "McDonald's",
+		transactionDate: "Today, 2:30 PM",
+		amount: 200
+	)
 }
