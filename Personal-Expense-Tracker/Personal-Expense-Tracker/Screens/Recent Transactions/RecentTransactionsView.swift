@@ -91,6 +91,15 @@ struct RecentTransactionsView: View {
 }
 
 private extension RecentTransactionsView {
+	var listInsets: EdgeInsets {
+		EdgeInsets(
+			top: DS.Metrics.Spacing.`8`,
+			leading: 0,
+			bottom: DS.Metrics.Spacing.`8`,
+			trailing: 0
+		)
+	}
+
 	func navigateToAddTrasaction() {
 		routerPath.path.append(.addNewTransaction)
 	}
