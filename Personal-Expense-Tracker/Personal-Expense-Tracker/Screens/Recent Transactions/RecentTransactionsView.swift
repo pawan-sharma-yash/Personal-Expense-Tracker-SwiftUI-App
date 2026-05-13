@@ -25,7 +25,7 @@ struct RecentTransactionsView: View {
 				.pickerStyle(.segmented)
 				Spacer(minLength: 12.0)
 				if recentTransactionsViewModel.recentTransactions.isEmpty {
-					VStack(spacing: DS.Metrics.Spacing.s) {
+					VStack(spacing: DS.Metrics.Spacing.`6`) {
 						Text(recentTransactionsViewModel.emptyState.message)
 							.font(DS.Typography.headline)
 							.foregroundStyle(DS.ColorToken.textPrimary)
@@ -38,7 +38,7 @@ struct RecentTransactionsView: View {
 							navigateToAddTrasaction()
 						}
 						.buttonStyle(DS.Components.PrimaryButtonStyle())
-						.padding(.top, DS.Metrics.Spacing.s)
+						.padding(.top, DS.Metrics.Spacing.`6`)
 					}
 					.dsCard()
 					Spacer()
@@ -53,9 +53,9 @@ struct RecentTransactionsView: View {
 							)
 						}
 						.listRowSeparator(.hidden)
-						.listRowInsets(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
-						.padding(.vertical, 12)
-						.padding(.horizontal, 12)
+						.listRowInsets(listInsets)
+						.padding(.vertical, DS.Metrics.Spacing.`12`)
+						.padding(.horizontal, DS.Metrics.Spacing.`12`)
 						.background(
 							RoundedRectangle(cornerRadius: 12)
 								.fill(Color(red: 249 / 255, green: 250 / 255, blue: 252 / 255))
@@ -69,7 +69,7 @@ struct RecentTransactionsView: View {
 					.listStyle(.plain)
 				}
 			}
-			.padding(DS.Metrics.Spacing.m)
+			.padding(DS.Metrics.Spacing.`8`)
 			.withAppRouter()
 			.navigationTitle("Expense Tracker")
 			.toolbar {

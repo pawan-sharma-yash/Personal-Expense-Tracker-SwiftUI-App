@@ -16,7 +16,7 @@ extension DS.Components {
 		public func _body(configuration: TextField<_Label>) -> some View {
 			configuration
 				.font(DS.Typography.body)
-				.padding(.horizontal, DS.Metrics.Spacing.m)
+				.padding(.horizontal, DS.Metrics.Spacing.`8`)
 				.frame(minHeight: DS.Metrics.Control.height)
 				.background(DS.ColorToken.elevatedSurface)
 				.clipShape(RoundedRectangle(cornerRadius: DS.Metrics.Radius.s, style: .continuous))

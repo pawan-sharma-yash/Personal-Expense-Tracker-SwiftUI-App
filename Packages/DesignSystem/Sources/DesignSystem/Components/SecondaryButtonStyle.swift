@@ -21,7 +21,7 @@ extension DS.Components {
 				.font(DS.Typography.body.weight(.semibold))
 				.foregroundStyle(tint)
 				.frame(maxWidth: .infinity, minHeight: DS.Metrics.Control.height)
-				.padding(.horizontal, DS.Metrics.Spacing.m)
+				.padding(.horizontal, DS.Metrics.Spacing.`8`)
 				.background(
 					RoundedRectangle(cornerRadius: DS.Metrics.Radius.s, style: .continuous)
 						.fill(tint.opacity(configuration.isPressed ? 0.10 : 0.06))

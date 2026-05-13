@@ -13,7 +13,7 @@ extension DS.Components {
 	public struct Card: ViewModifier {
 		let padding: CGFloat
 
-		public init(padding: CGFloat = DS.Metrics.Spacing.m) {
+		public init(padding: CGFloat = DS.Metrics.Spacing.`8`) {
 			self.padding = padding
 		}
 
@@ -31,7 +31,7 @@ extension DS.Components {
 }
 
 public extension View {
-	func dsCard(padding: CGFloat = DS.Metrics.Spacing.m) -> some View {
+	func dsCard(padding: CGFloat = DS.Metrics.Spacing.`8`) -> some View {
 		modifier(DS.Components.Card(padding: padding))
 	}
 }
