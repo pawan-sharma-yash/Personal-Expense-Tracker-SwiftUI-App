@@ -44,7 +44,14 @@ struct RecentTransactionsView: View {
 					Spacer()
 				} else {
 					List(recentTransactionsViewModel.recentTransactions) { tx in
-						TransactionView(title: tx.title, transactionDate: tx.date.description, amount: tx.amount)
+						Button(action: navigateToExpenseDetails) {
+							TransactionView(
+								title: tx.title,
+								transactionDate: tx.date.description,
+								amount: tx.amount,
+								category: tx.category
+							)
+						}
 						.listRowSeparator(.hidden)
 						.listRowInsets(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
 						.padding(.vertical, 12)
@@ -86,5 +93,9 @@ struct RecentTransactionsView: View {
 private extension RecentTransactionsView {
 	func navigateToAddTrasaction() {
 		routerPath.path.append(.addNewTransaction)
+	}
+
+	func navigateToExpenseDetails() {
+		routerPath.path.append(.expenseDetails)
 	}
 }
