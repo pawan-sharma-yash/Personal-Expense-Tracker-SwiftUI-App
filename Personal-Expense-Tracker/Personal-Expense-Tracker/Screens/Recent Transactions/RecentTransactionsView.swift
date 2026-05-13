@@ -12,6 +12,7 @@ import DesignSystem
 struct RecentTransactionsView: View {
 	@State private var recentTransactionsViewModel = RecentTransactionsViewModel()
 	@Environment(RouterPath.self) private var routerPath
+	private typealias Spacing = DS.Metrics.Spacing
 
 	var body: some View {
 		@Bindable var routerPath = routerPath
@@ -25,7 +26,7 @@ struct RecentTransactionsView: View {
 				.pickerStyle(.segmented)
 				Spacer(minLength: 12.0)
 				if recentTransactionsViewModel.recentTransactions.isEmpty {
-					VStack(spacing: DS.Metrics.Spacing.`6`) {
+					VStack(spacing: Spacing.`6`) {
 						Text(recentTransactionsViewModel.emptyState.message)
 							.font(DS.Typography.headline)
 							.foregroundStyle(DS.ColorToken.textPrimary)
@@ -34,11 +35,12 @@ struct RecentTransactionsView: View {
 							.font(DS.Typography.caption)
 							.foregroundStyle(DS.ColorToken.textSecondary)
 
-						Button(recentTransactionsViewModel.emptyState.actionTitle) {
-							navigateToAddTrasaction()
-						}
+						Button(
+							recentTransactionsViewModel.emptyState.actionTitle,
+							action: navigateToAddTrasaction
+						)
 						.buttonStyle(DS.Components.PrimaryButtonStyle())
-						.padding(.top, DS.Metrics.Spacing.`6`)
+						.padding(.top, Spacing.`6`)
 					}
 					.dsCard()
 					Spacer()
@@ -54,8 +56,8 @@ struct RecentTransactionsView: View {
 						}
 						.listRowSeparator(.hidden)
 						.listRowInsets(listInsets)
-						.padding(.vertical, DS.Metrics.Spacing.`12`)
-						.padding(.horizontal, DS.Metrics.Spacing.`12`)
+						.padding(.vertical, Spacing.`12`)
+						.padding(.horizontal, Spacing.`12`)
 						.background(
 							RoundedRectangle(cornerRadius: 12)
 								.fill(Color(red: 249 / 255, green: 250 / 255, blue: 252 / 255))
@@ -69,13 +71,11 @@ struct RecentTransactionsView: View {
 					.listStyle(.plain)
 				}
 			}
-			.padding(DS.Metrics.Spacing.`8`)
+			.padding(Spacing.`8`)
 			.withAppRouter()
 			.navigationTitle("Expense Tracker")
 			.toolbar {
-				Button {
-					navigateToAddTrasaction()
-				} label: {
+				Button(action: navigateToAddTrasaction) {
 					Circle()
 						.fill(Color.white)
 						.overlay {
@@ -93,9 +93,9 @@ struct RecentTransactionsView: View {
 private extension RecentTransactionsView {
 	var listInsets: EdgeInsets {
 		EdgeInsets(
-			top: DS.Metrics.Spacing.`8`,
+			top: Spacing.`8`,
 			leading: 0,
-			bottom: DS.Metrics.Spacing.`8`,
+			bottom: Spacing.`8`,
 			trailing: 0
 		)
 	}
