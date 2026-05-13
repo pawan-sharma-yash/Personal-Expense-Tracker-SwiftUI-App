@@ -19,9 +19,9 @@ struct DesignSystemMetricsTests {
 	}
 
 	@Test func `radius values are positive and ordered`() {
-		#expect(DS.Metrics.Radius.s > 0)
-		#expect(DS.Metrics.Radius.m > DS.Metrics.Radius.s)
-		#expect(DS.Metrics.Radius.l > DS.Metrics.Radius.m)
+		#expect(DS.Metrics.Radius.`10` > 0)
+		#expect(DS.Metrics.Radius.`14` > DS.Metrics.Radius.`10`)
+		#expect(DS.Metrics.Radius.`18` > DS.Metrics.Radius.`14`)
 	}
 
 	@Test func `border widths are positive and ordered`() {

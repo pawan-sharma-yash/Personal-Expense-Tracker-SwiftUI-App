@@ -10,8 +10,8 @@ import SwiftUI
 
 extension DS.Metrics {
 	public enum Radius {
-		public static let s: CGFloat = 10
-		public static let m: CGFloat = 14
-		public static let l: CGFloat = 18
+		public static let `10`: CGFloat = 10
+		public static let `14`: CGFloat = 14
+		public static let `18`: CGFloat = 18
 	}
 }

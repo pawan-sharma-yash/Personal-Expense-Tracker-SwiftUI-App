@@ -19,9 +19,9 @@ extension DS.Components {
 				.padding(.horizontal, DS.Metrics.Spacing.`8`)
 				.frame(minHeight: DS.Metrics.Control.height)
 				.background(DS.ColorToken.elevatedSurface)
-				.clipShape(RoundedRectangle(cornerRadius: DS.Metrics.Radius.s, style: .continuous))
+				.clipShape(RoundedRectangle(cornerRadius: DS.Metrics.Radius.`10`, style: .continuous))
 				.overlay(
-					RoundedRectangle(cornerRadius: DS.Metrics.Radius.s, style: .continuous)
+					RoundedRectangle(cornerRadius: DS.Metrics.Radius.`10`, style: .continuous)
 						.stroke(DS.ColorToken.border.opacity(0.8), lineWidth: DS.Metrics.BorderWidth.hairline)
 				)
 		}
