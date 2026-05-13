@@ -3,16 +3,19 @@ import Testing
 
 @Test
 func designSystem_smokeTest() {
-	_ = DS.Metrics.Spacing.m
+	_ = DS.Metrics.Spacing.`8`
 }
 
 @Suite("DesignSystem Metrics")
 struct DesignSystemMetricsTests {
 	@Test func `spacing values are positive and ordered`() {
-		#expect(DS.Metrics.Spacing.xs > 0)
-		#expect(DS.Metrics.Spacing.s > DS.Metrics.Spacing.xs)
-		#expect(DS.Metrics.Spacing.m > DS.Metrics.Spacing.s)
-		#expect(DS.Metrics.Spacing.l > DS.Metrics.Spacing.m)
+		#expect(DS.Metrics.Spacing.`6` > 0)
+		#expect(DS.Metrics.Spacing.`8` > DS.Metrics.Spacing.`6`)
+		#expect(DS.Metrics.Spacing.`10` > DS.Metrics.Spacing.`6`)
+		#expect(DS.Metrics.Spacing.`12` > DS.Metrics.Spacing.`6`)
+		#expect(DS.Metrics.Spacing.`16` > DS.Metrics.Spacing.`6`)
+		#expect(DS.Metrics.Spacing.`20` > DS.Metrics.Spacing.`6`)
+		#expect(DS.Metrics.Spacing.`24` > DS.Metrics.Spacing.`6`)
 	}
 
 	@Test func `radius values are positive and ordered`() {
@@ -57,7 +60,7 @@ struct DesignSystemTokensAndComponentsTests {
 
 	@Test func `card uses medium spacing by default`() {
 		let card = DS.Components.Card()
-		#expect(card.padding == DS.Metrics.Spacing.m)
+		#expect(card.padding == DS.Metrics.Spacing.`8`)
 	}
 
 	@Test func `card accepts custom padding`() {
@@ -80,4 +83,3 @@ struct DesignSystemTokensAndComponentsTests {
 		_ = DS.Components.InputTextFieldStyle()
 	}
 }
-
