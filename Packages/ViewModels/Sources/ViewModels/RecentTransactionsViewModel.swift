@@ -17,58 +17,61 @@ public final class RecentTransactionsViewModel {
 			subTitle: "Track every expense to see trends over time."
 		)
 	}
+
 	public init() { }
 
-	public var recentTransactions: [Transaction] { [
-		Transaction(
+	public var screenTitle: String { "Expense Tracker" }
+
+	public var recentTransactions: [Expense] { [
+		Expense(
 			title: "McDonald's",
 			date: .now,
 			amount: -12.50,
 			category: .food
 		),
-		Transaction(
+		Expense(
 			title: "Shell Gas Station",
 			date: .now.addingTimeInterval(-60 * 60 * 6),
 			amount: -45.20,
 			category: .transport
 		),
-		Transaction(
+		Expense(
 			title: "Salary Deposit",
 			date: .now.addingTimeInterval(-60 * 60 * 24),
 			amount: 3_200,
 			category: .fun
 		),
-		Transaction(
+		Expense(
 			title: "McDonald's",
 			date: .now,
 			amount: -12.50,
 			category: .food
 		),
-		Transaction(
+		Expense(
 			title: "Shell Gas Station",
 			date: .now.addingTimeInterval(-60 * 60 * 6),
 			amount: -45.20,
 			category: .transport
 		),
-		Transaction(
+		Expense(
 			title: "Salary Deposit",
 			date: .now.addingTimeInterval(-60 * 60 * 24),
 			amount: 3_200,
 			category: .fun
 		),
-		Transaction(
+		Expense(
 			title: "McDonald's",
 			date: .now,
 			amount: -12.50,
 			category: .food
 		),
-		Transaction(
+		Expense(
 			title: "Shell Gas Station",
 			date: .now.addingTimeInterval(-60 * 60 * 6),
 			amount: -45.20,
 			category: .transport
 		),
-		Transaction(
+		Expense(
 			title: "Salary Deposit",
 			date: .now.addingTimeInterval(-60 * 60 * 24),
 			amount: 3_200,

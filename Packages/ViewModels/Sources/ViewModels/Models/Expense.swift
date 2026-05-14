@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Transaction: Identifiable, Equatable, Sendable {
+public struct Expense: Identifiable, Equatable, Sendable, Hashable {
 	public let id: UUID
 	public let title: String
 	public let date: Date

@@ -7,13 +7,16 @@
 
 import SwiftUI
 
+private extension DS.Components {
+	typealias Spacing = DS.Metrics.Spacing
+	typealias Radius = DS.Metrics.Radius
+	typealias Control = DS.Metrics.Control
+	typealias BorderWidth = DS.Metrics.BorderWidth
+}
+
 extension DS.Components {
 	public struct PrimaryButtonStyle: ButtonStyle {
 		public init() { }
-
-		private typealias Spacing = DS.Metrics.Spacing
-		private typealias Radius = DS.Metrics.Radius
-		private typealias Control = DS.Metrics.Control
 
 		public func makeBody(configuration: Configuration) -> some View {
 			configuration.label

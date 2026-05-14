@@ -25,7 +25,7 @@ struct RecentTransactionsView: View {
 				}
 				.pickerStyle(.segmented)
 				Spacer(minLength: 12.0)
-				if !recentTransactionsViewModel.recentTransactions.isEmpty {
+				if recentTransactionsViewModel.recentTransactions.isEmpty {
 					EmptyStateView(
 						title: recentTransactionsViewModel.emptyState.message,
 						subtitle: recentTransactionsViewModel.emptyState.subTitle,

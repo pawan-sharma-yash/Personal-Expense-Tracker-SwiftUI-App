@@ -11,7 +11,7 @@ extension View {
 	func withAppRouter() -> some View {
 		navigationDestination(for: RouterDestination.self) { screen in
 			switch screen {
-			case .recentTransactions: RecentTransactionsView()
+			case .recentTransactions: RecentExpensesView()
 			case .addNewTransaction: AddNewExpenseView()
 			case .expenseDetails: ExpenseDetailsView()
 			}
