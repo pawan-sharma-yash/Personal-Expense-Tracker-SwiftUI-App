@@ -19,7 +19,7 @@ struct TransactionView: View {
 		HStack(spacing: 12) {
 			// Icon
 			ZStack {
-				RoundedRectangle(cornerRadius: DS.Metrics.Radius.`10`)
+				RoundedRectangle(cornerRadius: DS.Metrics.Radius.s)
 					.fill(category.color)
 				Image(systemName: category.icon)
 					.foregroundColor(Color.black)

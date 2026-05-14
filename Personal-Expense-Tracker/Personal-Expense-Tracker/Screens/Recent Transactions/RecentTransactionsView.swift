@@ -12,7 +12,7 @@ import DesignSystem
 struct RecentTransactionsView: View {
 	@State private var recentTransactionsViewModel = RecentTransactionsViewModel()
 	@Environment(RouterPath.self) private var routerPath
-	private typealias Spacing = DS.Metrics.Spacing
+	 private typealias Spacing = DS.Metrics.Spacing
 
 	var body: some View {
 		@Bindable var routerPath = routerPath
@@ -25,24 +25,13 @@ struct RecentTransactionsView: View {
 				}
 				.pickerStyle(.segmented)
 				Spacer(minLength: 12.0)
-				if recentTransactionsViewModel.recentTransactions.isEmpty {
-					VStack(spacing: Spacing.`6`) {
-						Text(recentTransactionsViewModel.emptyState.message)
-							.font(DS.Typography.headline)
-							.foregroundStyle(Color.textPrimary)
-
-						Text(recentTransactionsViewModel.emptyState.subTitle)
-							.font(DS.Typography.caption)
-							.foregroundStyle(Color.textSecondary)
-
-						Button(
-							recentTransactionsViewModel.emptyState.actionTitle,
-							action: navigateToAddTrasaction
-						)
-						.buttonStyle(DS.Components.PrimaryButtonStyle())
-						.padding(.top, Spacing.`6`)
-					}
-					.dsCard()
+				if !recentTransactionsViewModel.recentTransactions.isEmpty {
+					EmptyStateView(
+						title: recentTransactionsViewModel.emptyState.message,
+						subtitle: recentTransactionsViewModel.emptyState.subTitle,
+						actionTitle: recentTransactionsViewModel.emptyState.actionTitle,
+						action: navigateToAddTrasaction
+					)
 					Spacer()
 				} else {
 					List(recentTransactionsViewModel.recentTransactions) { tx in
@@ -56,8 +45,8 @@ struct RecentTransactionsView: View {
 						}
 						.listRowSeparator(.hidden)
 						.listRowInsets(listInsets)
-						.padding(.vertical, Spacing.`12`)
-						.padding(.horizontal, Spacing.`12`)
+						.padding(.vertical, Spacing.m)
+						.padding(.horizontal, Spacing.m)
 						.background(
 							RoundedRectangle(cornerRadius: 12)
 								.fill(Color(red: 249 / 255, green: 250 / 255, blue: 252 / 255))
@@ -71,7 +60,7 @@ struct RecentTransactionsView: View {
 					.listStyle(.plain)
 				}
 			}
-			.padding(Spacing.`8`)
+			.padding(Spacing.xs)
 			.withAppRouter()
 			.navigationTitle("Expense Tracker")
 			.toolbar {
@@ -93,9 +82,9 @@ struct RecentTransactionsView: View {
 private extension RecentTransactionsView {
 	var listInsets: EdgeInsets {
 		EdgeInsets(
-			top: Spacing.`8`,
+			top: Spacing.xs,
 			leading: 0,
-			bottom: Spacing.`8`,
+			bottom: Spacing.xs,
 			trailing: 0
 		)
 	}
