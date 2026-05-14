@@ -10,7 +10,7 @@ import SwiftUI
 struct BottomTabView: View {
 	var body: some View {
 		TabView {
-			RecentTransactionsView()
+			RecentExpensesView()
 				.tabItem {
 					Label("Home", systemImage: "house.fill")
 				}

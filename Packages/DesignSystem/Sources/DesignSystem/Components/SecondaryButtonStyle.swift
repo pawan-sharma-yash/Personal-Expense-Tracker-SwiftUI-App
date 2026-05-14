@@ -5,8 +5,14 @@
 //  Created by Pawan Kumar Sharma on 06/05/26.
 //
 
-
 import SwiftUI
+
+private extension DS.Components {
+	typealias Spacing = DS.Metrics.Spacing
+	typealias Radius = DS.Metrics.Radius
+	typealias Control = DS.Metrics.Control
+	typealias BorderWidth = DS.Metrics.BorderWidth
+}
 
 extension DS.Components {
 	public struct SecondaryButtonStyle: ButtonStyle {
@@ -15,11 +21,6 @@ extension DS.Components {
 		public init(tint: SwiftUI.Color = .accent) {
 			self.tint = tint
 		}
-
-		private typealias Spacing = DS.Metrics.Spacing
-		private typealias Radius = DS.Metrics.Radius
-		private typealias Control = DS.Metrics.Control
-		private typealias BorderWidth = DS.Metrics.BorderWidth
 
 		public func makeBody(configuration: Configuration) -> some View {
 			configuration.label

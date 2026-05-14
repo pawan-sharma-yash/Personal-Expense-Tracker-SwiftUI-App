@@ -9,6 +9,13 @@ import SwiftUI
 
 // MARK: - Card
 
+private extension DS.Components {
+	typealias Spacing = DS.Metrics.Spacing
+	typealias Radius = DS.Metrics.Radius
+	typealias Control = DS.Metrics.Control
+	typealias BorderWidth = DS.Metrics.BorderWidth
+}
+
 extension DS.Components {
 	public struct Card: ViewModifier {
 		let padding: CGFloat
@@ -21,10 +28,10 @@ extension DS.Components {
 			content
 				.padding(padding)
 				.background(Color.surface)
-				.clipShape(RoundedRectangle(cornerRadius: DS.Metrics.Radius.m, style: .continuous))
+				.clipShape(RoundedRectangle(cornerRadius: Radius.m, style: .continuous))
 				.overlay(
-					RoundedRectangle(cornerRadius: DS.Metrics.Radius.m, style: .continuous)
-						.stroke(Color.border.opacity(0.7), lineWidth: DS.Metrics.BorderWidth.hairline)
+					RoundedRectangle(cornerRadius: Radius.m, style: .continuous)
+						.stroke(Color.border.opacity(0.7), lineWidth: BorderWidth.hairline)
 				)
 		}
 	}

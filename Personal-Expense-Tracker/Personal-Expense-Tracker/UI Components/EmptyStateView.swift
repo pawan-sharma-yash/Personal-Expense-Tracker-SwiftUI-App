@@ -14,8 +14,6 @@ struct EmptyStateView: View {
 	let actionTitle: String
 	let action: () -> Void
 
-	private typealias Spacing = DS.Metrics.Spacing
-
 	var body: some View {
 		VStack(spacing: Spacing.xxs) {
 			Text(title)
