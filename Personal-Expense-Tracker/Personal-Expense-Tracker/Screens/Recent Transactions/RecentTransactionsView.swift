@@ -12,6 +12,7 @@ import DesignSystem
 struct RecentTransactionsView: View {
 	@State private var recentTransactionsViewModel = RecentTransactionsViewModel()
 	@Environment(RouterPath.self) private var routerPath
+	 private typealias Spacing = DS.Metrics.Spacing
 
 	var body: some View {
 		@Bindable var routerPath = routerPath
@@ -24,31 +25,28 @@ struct RecentTransactionsView: View {
 				}
 				.pickerStyle(.segmented)
 				Spacer(minLength: 12.0)
-				if recentTransactionsViewModel.recentTransactions.isEmpty {
-					VStack(spacing: DS.Metrics.Spacing.s) {
-						Text(recentTransactionsViewModel.emptyState.message)
-							.font(DS.Typography.headline)
-							.foregroundStyle(DS.ColorToken.textPrimary)
-
-						Text(recentTransactionsViewModel.emptyState.subTitle)
-							.font(DS.Typography.caption)
-							.foregroundStyle(DS.ColorToken.textSecondary)
-
-						Button(recentTransactionsViewModel.emptyState.actionTitle) {
-							navigateToAddTrasaction()
-						}
-						.buttonStyle(DS.Components.PrimaryButtonStyle())
-						.padding(.top, DS.Metrics.Spacing.s)
-					}
-					.dsCard()
+				if !recentTransactionsViewModel.recentTransactions.isEmpty {
+					EmptyStateView(
+						title: recentTransactionsViewModel.emptyState.message,
+						subtitle: recentTransactionsViewModel.emptyState.subTitle,
+						actionTitle: recentTransactionsViewModel.emptyState.actionTitle,
+						action: navigateToAddTrasaction
+					)
 					Spacer()
 				} else {
 					List(recentTransactionsViewModel.recentTransactions) { tx in
-						TransactionView(title: tx.title, transactionDate: tx.date.description, amount: tx.amount)
+						Button(action: navigateToExpenseDetails) {
+							TransactionView(
+								title: tx.title,
+								transactionDate: tx.date.description,
+								amount: tx.amount,
+								category: tx.category
+							)
+						}
 						.listRowSeparator(.hidden)
-						.listRowInsets(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
-						.padding(.vertical, 12)
-						.padding(.horizontal, 12)
+						.listRowInsets(listInsets)
+						.padding(.vertical, Spacing.m)
+						.padding(.horizontal, Spacing.m)
 						.background(
 							RoundedRectangle(cornerRadius: 12)
 								.fill(Color(red: 249 / 255, green: 250 / 255, blue: 252 / 255))
@@ -62,20 +60,18 @@ struct RecentTransactionsView: View {
 					.listStyle(.plain)
 				}
 			}
-			.padding(DS.Metrics.Spacing.m)
+			.padding(Spacing.xs)
 			.withAppRouter()
 			.navigationTitle("Expense Tracker")
 			.toolbar {
-				Button {
-					navigateToAddTrasaction()
-				} label: {
+				Button(action: navigateToAddTrasaction) {
 					Circle()
 						.fill(Color.white)
 						.overlay {
 							Image(systemName: "plus.circle.fill")
 								.font(.title2)
 								.fontWeight(.semibold)
-								.foregroundColor(DS.ColorToken.accent)
+								.foregroundColor(Color.accent)
 						}
 				}
 			}
@@ -84,7 +80,20 @@ struct RecentTransactionsView: View {
 }
 
 private extension RecentTransactionsView {
+	var listInsets: EdgeInsets {
+		EdgeInsets(
+			top: Spacing.xs,
+			leading: 0,
+			bottom: Spacing.xs,
+			trailing: 0
+		)
+	}
+
 	func navigateToAddTrasaction() {
 		routerPath.path.append(.addNewTransaction)
+	}
+
+	func navigateToExpenseDetails() {
+		routerPath.path.append(.expenseDetails)
 	}
 }

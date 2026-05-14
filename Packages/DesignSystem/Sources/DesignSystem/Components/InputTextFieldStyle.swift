@@ -7,6 +7,15 @@
 
 import SwiftUI
 
+// MARK: - TypeAlias
+
+private extension DS.Components {
+	typealias Spacing = DS.Metrics.Spacing
+	typealias Radius = DS.Metrics.Radius
+	typealias Control = DS.Metrics.Control
+	typealias BorderWidth = DS.Metrics.BorderWidth
+}
+
 // MARK: - Inputs
 
 extension DS.Components {
@@ -16,13 +25,13 @@ extension DS.Components {
 		public func _body(configuration: TextField<_Label>) -> some View {
 			configuration
 				.font(DS.Typography.body)
-				.padding(.horizontal, DS.Metrics.Spacing.m)
-				.frame(minHeight: DS.Metrics.Control.height)
-				.background(DS.ColorToken.elevatedSurface)
-				.clipShape(RoundedRectangle(cornerRadius: DS.Metrics.Radius.s, style: .continuous))
+				.padding(.horizontal, Spacing.xs)
+				.frame(minHeight: Control.height)
+				.background(Color.elevatedSurface)
+				.clipShape(RoundedRectangle(cornerRadius: Radius.s, style: .continuous))
 				.overlay(
-					RoundedRectangle(cornerRadius: DS.Metrics.Radius.s, style: .continuous)
-						.stroke(DS.ColorToken.border.opacity(0.8), lineWidth: DS.Metrics.BorderWidth.hairline)
+					RoundedRectangle(cornerRadius: Radius.s, style: .continuous)
+						.stroke(Color.border.opacity(0.8), lineWidth: BorderWidth.hairline)
 				)
 		}
 	}

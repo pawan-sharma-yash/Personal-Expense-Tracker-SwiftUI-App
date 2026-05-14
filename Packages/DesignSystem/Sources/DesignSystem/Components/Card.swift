@@ -13,25 +13,25 @@ extension DS.Components {
 	public struct Card: ViewModifier {
 		let padding: CGFloat
 
-		public init(padding: CGFloat = DS.Metrics.Spacing.m) {
+		public init(padding: CGFloat = DS.Metrics.Spacing.xs) {
 			self.padding = padding
 		}
 
 		public func body(content: Content) -> some View {
 			content
 				.padding(padding)
-				.background(DS.ColorToken.surface)
+				.background(Color.surface)
 				.clipShape(RoundedRectangle(cornerRadius: DS.Metrics.Radius.m, style: .continuous))
 				.overlay(
 					RoundedRectangle(cornerRadius: DS.Metrics.Radius.m, style: .continuous)
-						.stroke(DS.ColorToken.border.opacity(0.7), lineWidth: DS.Metrics.BorderWidth.hairline)
+						.stroke(Color.border.opacity(0.7), lineWidth: DS.Metrics.BorderWidth.hairline)
 				)
 		}
 	}
 }
 
 public extension View {
-	func dsCard(padding: CGFloat = DS.Metrics.Spacing.m) -> some View {
+	func dsCard(padding: CGFloat = DS.Metrics.Spacing.xs) -> some View {
 		modifier(DS.Components.Card(padding: padding))
 	}
 }
