@@ -9,10 +9,9 @@ import SwiftUI
 import ViewModels
 import DesignSystem
 
-struct RecentTransactionsView: View {
+struct RecentExpensesView: View {
 	@State private var recentTransactionsViewModel = RecentTransactionsViewModel()
 	@Environment(RouterPath.self) private var routerPath
-	 private typealias Spacing = DS.Metrics.Spacing
 
 	var body: some View {
 		@Bindable var routerPath = routerPath
@@ -24,10 +23,10 @@ struct RecentTransactionsView: View {
 					}
 				}
 				.pickerStyle(.segmented)
-				Spacer(minLength: 12.0)
+				Spacer(minLength: Spacing.m)
 				if recentTransactionsViewModel.recentTransactions.isEmpty {
 					EmptyStateView(
-						title: recentTransactionsViewModel.emptyState.message,
+						title: recentTransactionsViewModel.emptyState.title,
 						subtitle: recentTransactionsViewModel.emptyState.subTitle,
 						actionTitle: recentTransactionsViewModel.emptyState.actionTitle,
 						action: navigateToAddTrasaction
@@ -35,8 +34,8 @@ struct RecentTransactionsView: View {
 					Spacer()
 				} else {
 					List(recentTransactionsViewModel.recentTransactions) { tx in
-						Button(action: navigateToExpenseDetails) {
-							TransactionView(
+						Button(action: { navigateToExpenseDetails(tx) }) {
+							ExpenseView(
 								title: tx.title,
 								transactionDate: tx.date.description,
 								amount: tx.amount,
@@ -45,16 +44,15 @@ struct RecentTransactionsView: View {
 						}
 						.listRowSeparator(.hidden)
 						.listRowInsets(listInsets)
-						.padding(.vertical, Spacing.m)
-						.padding(.horizontal, Spacing.m)
+						.padding([.horizontal, .vertical], Spacing.m)
 						.background(
-							RoundedRectangle(cornerRadius: 12)
-								.fill(Color(red: 249 / 255, green: 250 / 255, blue: 252 / 255))
-								.shadow(color: Color.black.opacity(0.03), radius: 1, x: 0, y: 1)
+							RoundedRectangle(cornerRadius: Radius.m)
+								.fill(Color.veryLightBackground)
+								.shadow(color: Color.lightDarkShadow, radius: 1, x: 0, y: 1)
 						)
 						.overlay(
-							RoundedRectangle(cornerRadius: 12)
-								.stroke(Color(.systemGray5), lineWidth: 1)
+							RoundedRectangle(cornerRadius: Radius.m)
+								.stroke(Color(.systemGray5), lineWidth: BorderWidth.hairline)
 						)
 					}
 					.listStyle(.plain)
@@ -62,7 +60,7 @@ struct RecentTransactionsView: View {
 			}
 			.padding(Spacing.xs)
 			.withAppRouter()
-			.navigationTitle("Expense Tracker")
+			.navigationTitle(recentTransactionsViewModel.screenTitle)
 			.toolbar {
 				Button(action: navigateToAddTrasaction) {
 					Circle()
@@ -79,7 +77,7 @@ struct RecentTransactionsView: View {
 	}
 }
 
-private extension RecentTransactionsView {
+private extension RecentExpensesView {
 	var listInsets: EdgeInsets {
 		EdgeInsets(
 			top: Spacing.xs,
@@ -93,7 +91,13 @@ private extension RecentTransactionsView {
 		routerPath.path.append(.addNewTransaction)
 	}
 
-	func navigateToExpenseDetails() {
-		routerPath.path.append(.expenseDetails)
+	func navigateToExpenseDetails(_ exp: ViewModels.Expense) {
+		routerPath.path.append(.expenseDetails(expense: exp))
 	}
+}
+
+private extension RecentExpensesView {
+	typealias Spacing = DS.Metrics.Spacing
+	typealias Radius = DS.Metrics.Radius
+	typealias BorderWidth = DS.Metrics.BorderWidth
 }

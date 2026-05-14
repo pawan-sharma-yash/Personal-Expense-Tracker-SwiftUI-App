@@ -6,14 +6,18 @@
 //
 
 import SwiftUI
+import ViewModels
 
 struct ExpenseDetailsView: View {
-    var body: some View {
-			Text("Expense Details")
-				.navigationTitle("Expense Details")
-    }
-}
+	let expense: ViewModels.Expense
 
-#Preview {
-    ExpenseDetailsView()
+	var body: some View {
+		ExpenseView(
+			title: expense.title,
+			transactionDate: expense.date.description,
+			amount: expense.amount,
+			category: expense.category
+		)
+		.navigationTitle("Expense Details")
+	}
 }

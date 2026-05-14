@@ -13,7 +13,7 @@ extension View {
 			switch screen {
 			case .recentTransactions: RecentExpensesView()
 			case .addNewTransaction: AddNewExpenseView()
-			case .expenseDetails: ExpenseDetailsView()
+			case let .expenseDetails(expense): ExpenseDetailsView(expense: expense)
 			}
 		}
 	}

@@ -9,14 +9,14 @@ import SwiftUI
 import DesignSystem
 import ViewModels
 
-struct TransactionView: View {
+struct ExpenseView: View {
 	let title: String
 	let transactionDate: String
 	let amount: Decimal
 	let category: ViewModels.ExpenseCategory
 
 	var body: some View {
-		HStack(spacing: 12) {
+		HStack(spacing: DS.Metrics.Spacing.m) {
 			// Icon
 			ZStack {
 				RoundedRectangle(cornerRadius: DS.Metrics.Radius.s)
@@ -25,10 +25,10 @@ struct TransactionView: View {
 					.foregroundColor(Color.black)
 					.font(.system(size: 20))
 			}
-			.frame(width: 44, height: 44)
+			.frame(width: DS.Metrics.Control.height, height: DS.Metrics.Control.height)
 
 			// Title + subtitle
-			VStack(alignment: .leading, spacing: 2) {
+			VStack(alignment: .leading, spacing: DS.Metrics.Spacing.xxxxs) {
 				Text(title)
 					.font(.headline)
 					.foregroundColor(.primary)
@@ -50,7 +50,7 @@ struct TransactionView: View {
 }
 
 #Preview {
-	TransactionView(
+	ExpenseView(
 		title: "McDonald's",
 		transactionDate: "Today, 2:30 PM",
 		amount: 200,
