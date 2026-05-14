@@ -8,6 +8,8 @@ import AppKit
 extension Color {
 	// Brand / Accent
 	public static let accent = SwiftUI.Color(red: 0.051, green: 0.580, blue: 0.533) // cyan-ish
+	public static let veryLightBackground = SwiftUI.Color(red: 249 / 255, green: 250 / 255, blue: 252 / 255)
+	public static let lightDarkShadow = Color.black.opacity(0.03)
 
 	// Surfaces
 #if canImport(UIKit)
