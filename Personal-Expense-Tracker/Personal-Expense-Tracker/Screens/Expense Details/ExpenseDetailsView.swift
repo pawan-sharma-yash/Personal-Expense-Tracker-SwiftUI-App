@@ -10,6 +10,7 @@ import SwiftUI
 struct ExpenseDetailsView: View {
     var body: some View {
 			Text("Expense Details")
+				.navigationTitle("Expense Details")
     }
 }
 

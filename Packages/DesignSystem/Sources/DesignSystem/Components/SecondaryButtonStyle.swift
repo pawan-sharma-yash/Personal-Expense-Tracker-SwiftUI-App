@@ -12,7 +12,7 @@ extension DS.Components {
 	public struct SecondaryButtonStyle: ButtonStyle {
 		let tint: SwiftUI.Color
 
-		public init(tint: SwiftUI.Color = DS.ColorToken.accent) {
+		public init(tint: SwiftUI.Color = .accent) {
 			self.tint = tint
 		}
 

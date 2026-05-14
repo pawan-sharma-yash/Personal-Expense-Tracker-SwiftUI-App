@@ -18,11 +18,11 @@ extension DS.Components {
 				.font(DS.Typography.body)
 				.padding(.horizontal, DS.Metrics.Spacing.`8`)
 				.frame(minHeight: DS.Metrics.Control.height)
-				.background(DS.ColorToken.elevatedSurface)
+				.background(Color.elevatedSurface)
 				.clipShape(RoundedRectangle(cornerRadius: DS.Metrics.Radius.`10`, style: .continuous))
 				.overlay(
 					RoundedRectangle(cornerRadius: DS.Metrics.Radius.`10`, style: .continuous)
-						.stroke(DS.ColorToken.border.opacity(0.8), lineWidth: DS.Metrics.BorderWidth.hairline)
+						.stroke(Color.border.opacity(0.8), lineWidth: DS.Metrics.BorderWidth.hairline)
 				)
 		}
 	}

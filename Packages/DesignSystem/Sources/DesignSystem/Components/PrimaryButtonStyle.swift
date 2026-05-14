@@ -17,7 +17,7 @@ extension DS.Components {
 				.foregroundStyle(.white)
 				.frame(maxWidth: .infinity, minHeight: DS.Metrics.Control.height)
 				.padding(.horizontal, DS.Metrics.Spacing.`8`)
-				.background(DS.ColorToken.accent)
+				.background(Color.accent)
 				.clipShape(RoundedRectangle(cornerRadius: DS.Metrics.Radius.`10`, style: .continuous))
 				.opacity(configuration.isPressed ? 0.85 : 1.0)
 		}

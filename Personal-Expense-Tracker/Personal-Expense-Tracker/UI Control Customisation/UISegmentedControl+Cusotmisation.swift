@@ -12,8 +12,8 @@ import SwiftUI
 extension UISegmentedControl {
 	static func _customAppearance() {
 		// Customize the segmented control appearance
-		UISegmentedControl.appearance().backgroundColor = UIColor(DS.ColorToken.surface)
-		UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(DS.ColorToken.accent)
+		UISegmentedControl.appearance().backgroundColor = UIColor(Color.surface)
+		UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(Color.accent)
 
 		// Set font for normal state
 		UISegmentedControl.appearance()

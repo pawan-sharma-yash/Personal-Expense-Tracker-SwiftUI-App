@@ -15,4 +15,3 @@ extension DS {
 		public static let caption = Font.system(.caption, design: .rounded)
 	}
 }
-

@@ -29,11 +29,11 @@ struct RecentTransactionsView: View {
 					VStack(spacing: Spacing.`6`) {
 						Text(recentTransactionsViewModel.emptyState.message)
 							.font(DS.Typography.headline)
-							.foregroundStyle(DS.ColorToken.textPrimary)
+							.foregroundStyle(Color.textPrimary)
 
 						Text(recentTransactionsViewModel.emptyState.subTitle)
 							.font(DS.Typography.caption)
-							.foregroundStyle(DS.ColorToken.textSecondary)
+							.foregroundStyle(Color.textSecondary)
 
 						Button(
 							recentTransactionsViewModel.emptyState.actionTitle,
@@ -82,7 +82,7 @@ struct RecentTransactionsView: View {
 							Image(systemName: "plus.circle.fill")
 								.font(.title2)
 								.fontWeight(.semibold)
-								.foregroundColor(DS.ColorToken.accent)
+								.foregroundColor(Color.accent)
 						}
 				}
 			}
