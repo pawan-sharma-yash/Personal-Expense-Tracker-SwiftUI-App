@@ -9,6 +9,10 @@ struct RecentTranctionsViewModel {
 		#expect(vm.selectedDuration == .daily)
 	}
 
+	@Test func `sets correct screen title`() {
+		#expect(vm.screenTitle == "Expense Tracker")
+	}
+
 	@Test() func `shows correct empty state messages`() {
 		#expect(vm.emptyState.message == "No recent transactions")
 		#expect(vm.emptyState.actionTitle == "Add transactions")
