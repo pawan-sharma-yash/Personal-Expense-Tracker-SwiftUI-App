@@ -31,7 +31,7 @@ struct ControlTests {
 
 	/// Exact contract values.
 	@Test() func `control token values match expected constants`() {
-		#expect(DS.Metrics.Control.height       == 44)
+		#expect(DS.Metrics.Control.height == 44)
 		#expect(DS.Metrics.Control.minTapTarget == 44)
 	}
 }

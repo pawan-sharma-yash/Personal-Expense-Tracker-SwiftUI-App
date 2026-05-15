@@ -12,7 +12,7 @@ public final class RecentTransactionsViewModel {
 	public var selectedDuration = ExpensePeriod.daily
 	public var emptyState: EmtpyState {
 		EmtpyState(
-			message: "No recent transactions",
+			title: "No recent transactions",
 			actionTitle: "Add transactions",
 			subTitle: "Track every expense to see trends over time."
 		)

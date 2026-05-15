@@ -14,7 +14,7 @@ struct RecentTranctionsViewModel {
 	}
 
 	@Test() func `shows correct empty state messages`() {
-		#expect(vm.emptyState.message == "No recent transactions")
+		#expect(vm.emptyState.title == "No recent transactions")
 		#expect(vm.emptyState.actionTitle == "Add transactions")
 		#expect(vm.emptyState.subTitle == "Track every expense to see trends over time.")
 	}
@@ -26,7 +26,7 @@ struct RecentTranctionsViewModel {
 
 	@Test func `empty state is always populated`() {
 		let state = vm.emptyState
-		#expect(state.message.isEmpty == false)
+		#expect(state.title.isEmpty == false)
 		#expect(state.actionTitle.isEmpty == false)
 		#expect(state.subTitle.isEmpty == false)
 	}

@@ -30,8 +30,8 @@ struct TypographyTests {
 	/// Tokens must be distinct so the visual hierarchy is unambiguous.
 	@Test() func `typography tokens are distinct`() {
 		#expect(DS.Typography.screenTitle != DS.Typography.headline)
-		#expect(DS.Typography.headline   != DS.Typography.body)
-		#expect(DS.Typography.body       != DS.Typography.caption)
+		#expect(DS.Typography.headline != DS.Typography.body)
+		#expect(DS.Typography.body != DS.Typography.caption)
 		#expect(DS.Typography.screenTitle != DS.Typography.caption)
 	}
 }
