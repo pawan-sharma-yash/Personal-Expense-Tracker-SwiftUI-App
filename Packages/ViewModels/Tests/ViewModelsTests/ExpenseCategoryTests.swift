@@ -5,7 +5,7 @@ import Testing
 struct ExpenseCategoryTests {
 	@Test func `allCases ordering is stable`() {
 		#expect(ExpenseCategory.allCases == [
-			.food, .transport, .shopping, .home, .fun, .health, .education, .other
+			.food, .transport, .shopping, .fun, .health, .education
 		])
 	}
 
