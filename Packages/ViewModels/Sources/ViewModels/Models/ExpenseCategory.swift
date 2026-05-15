@@ -23,12 +23,12 @@ public enum ExpenseCategory: String, CaseIterable, Identifiable, Sendable {
 
 	public var color: Color {
 		switch self {
-		case .food: .orange
-		case .transport: .orange
-		case .shopping: .orange
+		case .food: .green
+		case .transport: .blue
+		case .shopping: .yellow
 		case .fun: .orange
-		case .health: .orange
-		case .education: .orange
+		case .health: .red
+		case .education: .green
 		}
 	}
 }
