@@ -20,7 +20,7 @@ struct CrossTokenConsistencyTests {
 	/// The smallest spacing token must not exceed the hairline border width —
 	/// micro-spacing is always larger than the border it might sit beside.
 	@Test() func `smallest spacing token is wider than hairline border`() {
-		#expect(DS.Metrics.Spacing.`6` > DS.Metrics.BorderWidth.hairline)
+		#expect(DS.Metrics.Spacing.xxs > DS.Metrics.BorderWidth.hairline)
 	}
 
 	/// The card's default padding token must exist within the spacing scale.
@@ -39,6 +39,6 @@ struct CrossTokenConsistencyTests {
 	/// The smallest radius must be smaller than the largest spacing token so
 	/// rounded corners always fit within padded containers.
 	@Test() func `smallest radius is less than largest spacing token`() {
-		#expect(DS.Metrics.Radius.`10` < DS.Metrics.Spacing.`24`)
+		#expect(DS.Metrics.Radius.s < DS.Metrics.Spacing.xxl)
 	}
 }

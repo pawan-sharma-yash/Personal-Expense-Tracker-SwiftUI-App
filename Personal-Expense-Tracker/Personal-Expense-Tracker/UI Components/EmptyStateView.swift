@@ -31,3 +31,7 @@ struct EmptyStateView: View {
 		.dsCard()
 	}
 }
+
+private extension EmptyStateView {
+	typealias Spacing = DS.Metrics.Spacing
+}

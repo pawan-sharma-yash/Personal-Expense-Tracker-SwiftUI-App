@@ -30,13 +30,13 @@ struct BorderWidthTests {
 	@Test() func `border width values match expected constants`() {
 		#expect(DS.Metrics.BorderWidth.hairline == 1)
 		#expect(DS.Metrics.BorderWidth.regular  == 2)
-		#expect(DS.Metrics.BorderWidth.thick    == 3)
+		#expect(DS.Metrics.BorderWidth.thick == 3)
 	}
 
 	/// hairline < regular < thick is the expected semantic ordering.
 	@Test()
 	func `border widths are strictly ascending`() {
 		#expect(DS.Metrics.BorderWidth.hairline < DS.Metrics.BorderWidth.regular)
-		#expect(DS.Metrics.BorderWidth.regular  < DS.Metrics.BorderWidth.thick)
+		#expect(DS.Metrics.BorderWidth.regular < DS.Metrics.BorderWidth.thick)
 	}
 }
