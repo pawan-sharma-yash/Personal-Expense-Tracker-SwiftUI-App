@@ -6,25 +6,40 @@
 //
 
 import SwiftUI
+import ViewModels
 
 struct BottomTabView: View {
+	private let vm = BottomTabbarViewModel()
+
 	var body: some View {
 		TabView {
-			RecentExpensesView()
-				.tabItem {
-					Label("Home", systemImage: "house.fill")
-				}
-
-			ExpenseAnalyticsView()
-				.tabItem {
-					Label("Analytics", systemImage: "chart.line.uptrend.xyaxis")
-				}
-
-			SettingsView()
-				.tabItem {
-					Label("Settings", systemImage: "gearshape.fill")
-				}
+			recentExpenses()
+			analytics()
+			settings()
 		}
+	}
+}
+
+private extension BottomTabView {
+	 func recentExpenses() -> some View {
+		RecentExpensesView()
+			.tabItem {
+				Label(vm.home.title, systemImage: vm.home.icon)
+			}
+	}
+	
+	func analytics() -> some View {
+		ExpenseAnalyticsView()
+			.tabItem {
+				Label(vm.analytics.title, systemImage: vm.analytics.icon)
+			}
+	}
+	
+	func settings() -> some View {
+		SettingsView()
+			.tabItem {
+				Label(vm.settings.title, systemImage: vm.settings.icon)
+			}
 	}
 }
 

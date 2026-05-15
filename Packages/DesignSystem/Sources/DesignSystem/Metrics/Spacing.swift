@@ -10,6 +10,8 @@ import SwiftUI
 
 extension DS.Metrics {
 	public enum Spacing {
+		public static let xxxxs : CGFloat = 2
+		public static let xxxs : CGFloat = 4
 		public static let xxs : CGFloat = 6
 		public static let xs : CGFloat = 8
 		public static let s: CGFloat = 10
