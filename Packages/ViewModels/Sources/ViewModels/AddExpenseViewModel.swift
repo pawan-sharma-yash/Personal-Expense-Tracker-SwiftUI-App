@@ -3,10 +3,10 @@ import Observation
 
 @Observable
 public final class AddExpenseViewModel {
-	public var amountText: String = ""
-	public var selectedCategory: ExpenseCategory = .food
-	public var noteText: String = ""
-	public var date: Date = .now
+	public var amountText = ""
+	public var selectedCategory = ExpenseCategory.food
+	public var noteText = ""
+	public var date = Date.now
 
 	public init() { }
 
