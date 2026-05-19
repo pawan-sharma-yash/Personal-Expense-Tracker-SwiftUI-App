@@ -9,9 +9,10 @@ struct ExpenseCategoryTests {
 		])
 	}
 
-	@Test func `title is non-empty`() {
+	@Test func `title and icon is non-empty`() {
 		for category in ExpenseCategory.allCases {
 			#expect(category.title.isEmpty == false)
+			#expect(category.icon.isEmpty == false)
 		}
 	}
 }
