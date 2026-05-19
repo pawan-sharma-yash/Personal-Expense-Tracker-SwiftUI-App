@@ -7,8 +7,7 @@
 
 import Observation
 
-@MainActor
-@Observable
+@MainActor @Observable
 final class RouterPath {
 	public var path: [RouterDestination] = []
 
