@@ -7,9 +7,12 @@
 
 import Observation
 
-@Observable
+@Observable @MainActor
 public final class RecentTransactionsViewModel {
+	private let dataSource: ExpensesDataSourceProtocol = MockExpensesProvider()
 	public var selectedDuration = ExpensePeriod.daily
+	public var recentTransactions = [Expense]()
+
 	public var emptyState: EmtpyState {
 		EmtpyState(
 			title: "No recent transactions",
@@ -18,64 +21,26 @@ public final class RecentTransactionsViewModel {
 		)
 	}
 
-	public init() { }
+	public init() {
+		Task {
+			await loadTransactions()
+		}
+	}
 
 	public var screenTitle: String { "Expense Tracker" }
+}
 
-	public var recentTransactions: [Expense] { [
-		Expense(
-			title: "McDonald's",
-			date: .now,
-			amount: -12.50,
-			category: .food
-		),
-		Expense(
-			title: "Shell Gas Station",
-			date: .now.addingTimeInterval(-60 * 60 * 6),
-			amount: -45.20,
-			category: .transport
-		),
-		Expense(
-			title: "Salary Deposit",
-			date: .now.addingTimeInterval(-60 * 60 * 24),
-			amount: 3_200,
-			category: .fun
-		),
-		Expense(
-			title: "McDonald's",
-			date: .now,
-			amount: -12.50,
-			category: .food
-		),
-		Expense(
-			title: "Shell Gas Station",
-			date: .now.addingTimeInterval(-60 * 60 * 6),
-			amount: -45.20,
-			category: .transport
-		),
-		Expense(
-			title: "Salary Deposit",
-			date: .now.addingTimeInterval(-60 * 60 * 24),
-			amount: 3_200,
-			category: .fun
-		),
-		Expense(
-			title: "McDonald's",
-			date: .now,
-			amount: -12.50,
-			category: .food
-		),
-		Expense(
-			title: "Shell Gas Station",
-			date: .now.addingTimeInterval(-60 * 60 * 6),
-			amount: -45.20,
-			category: .transport
-		),
-		Expense(
-			title: "Salary Deposit",
-			date: .now.addingTimeInterval(-60 * 60 * 24),
-			amount: 3_200,
-			category: .health
-		),
-	]}
+// MARK: - Private
+
+private extension RecentTransactionsViewModel {
+	/// Fetches and updates transactions for the currently selected duration.
+	/// Extracted so it can be re-called on duration changes.
+
+	func loadTransactions() async {
+		do {
+			recentTransactions = try await dataSource.fetchExpenses(selectedDuration)
+		} catch {
+			recentTransactions = []
+		}
+	}
 }

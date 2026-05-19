@@ -5,7 +5,7 @@
 //  Created by Pawan Kumar Sharma on 28/04/26.
 //
 
-public enum ExpensePeriod: String, CaseIterable, Identifiable {
+public enum ExpensePeriod: String, Sendable, CaseIterable, Identifiable {
 	case daily = "Daily"
 	case weekly = "Weekly"
 	case monthly = "Monthly"
