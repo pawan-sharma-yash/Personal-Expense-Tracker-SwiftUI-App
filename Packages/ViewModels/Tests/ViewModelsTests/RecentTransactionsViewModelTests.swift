@@ -1,12 +1,12 @@
 import Testing
 @testable import ViewModels
 
-@Suite("Recent Tranctions View Model Tests")
+@MainActor @Suite("Recent Tranctions View Model Tests")
 struct RecentTranctionsViewModel {
 	private let vm = RecentTransactionsViewModel()
 
 	@Test func `starts with daily transations`() {
-		#expect(vm.selectedDuration == .daily)
+		#expect(vm.selectedDuration == .day)
 	}
 
 	@Test func `sets correct screen title`() {
@@ -20,8 +20,8 @@ struct RecentTranctionsViewModel {
 	}
 
 	@Test func `selected duration can be changed`() {
-		vm.selectedDuration = .monthly
-		#expect(vm.selectedDuration == .monthly)
+		vm.selectedDuration = .month
+		#expect(vm.selectedDuration == .month)
 	}
 
 	@Test func `empty state is always populated`() {

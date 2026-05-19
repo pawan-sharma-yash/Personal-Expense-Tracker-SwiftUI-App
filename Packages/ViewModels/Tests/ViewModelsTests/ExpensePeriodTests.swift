@@ -4,13 +4,13 @@ import Testing
 @Suite("ExpensePeriod")
 struct ExpensePeriodTests {
 	@Test func `all cases are stable`() {
-		#expect(ExpensePeriod.allCases == [.daily, .weekly, .monthly])
+		#expect(ExpensePeriod.allCases == [.day, .week, .month])
 	}
 
 	@Test func `raw values are user facing labels`() {
-		#expect(ExpensePeriod.daily.rawValue == "Daily")
-		#expect(ExpensePeriod.weekly.rawValue == "Weekly")
-		#expect(ExpensePeriod.monthly.rawValue == "Monthly")
+		#expect(ExpensePeriod.day.rawValue == "Daily")
+		#expect(ExpensePeriod.week.rawValue == "Weekly")
+		#expect(ExpensePeriod.month.rawValue == "Monthly")
 	}
 
 	@Test func `id equals raw value`() {

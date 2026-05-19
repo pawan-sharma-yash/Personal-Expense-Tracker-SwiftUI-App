@@ -9,12 +9,12 @@ import Observation
 import Foundation
 
 public protocol ExpensesDataSourceProtocol: Sendable {
-	func fetchExpenses(_ period: ExpensePeriod) async throws -> [Expense]
+	func fetchExpenses(for period: ExpensePeriod) async throws -> [Expense]
 }
 
 @Observable @MainActor
 final class MockExpensesProvider: ExpensesDataSourceProtocol {
-	public func fetchExpenses(_ period: ExpensePeriod) async throws -> [Expense] {
+	public func fetchExpenses(for period: ExpensePeriod) async throws -> [Expense] {
 		[
 			Expense(
 				title: "McDonald's",

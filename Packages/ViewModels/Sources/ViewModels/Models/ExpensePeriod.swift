@@ -6,8 +6,8 @@
 //
 
 public enum ExpensePeriod: String, Sendable, CaseIterable, Identifiable {
-	case daily = "Daily"
-	case weekly = "Weekly"
-	case monthly = "Monthly"
+	case day = "Daily"
+	case week = "Weekly"
+	case month = "Monthly"
 	public var id: String { rawValue }
 }

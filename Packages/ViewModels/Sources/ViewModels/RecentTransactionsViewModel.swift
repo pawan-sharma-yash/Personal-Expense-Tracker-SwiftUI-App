@@ -10,7 +10,7 @@ import Observation
 @Observable @MainActor
 public final class RecentTransactionsViewModel {
 	private let dataSource: ExpensesDataSourceProtocol = MockExpensesProvider()
-	public var selectedDuration = ExpensePeriod.daily
+	public var selectedDuration = ExpensePeriod.day
 	public var recentTransactions = [Expense]()
 
 	public var emptyState: EmtpyState {
@@ -38,7 +38,7 @@ private extension RecentTransactionsViewModel {
 
 	func loadTransactions() async {
 		do {
-			recentTransactions = try await dataSource.fetchExpenses(selectedDuration)
+			recentTransactions = try await dataSource.fetchExpenses(for: selectedDuration)
 		} catch {
 			recentTransactions = []
 		}
