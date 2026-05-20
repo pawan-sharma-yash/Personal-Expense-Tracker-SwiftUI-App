@@ -33,29 +33,10 @@ struct RecentExpensesView: View {
 					)
 					Spacer()
 				} else {
-					List(recentTransactionsViewModel.recentTransactions) { tx in
-						Button(action: { navigateToExpenseDetails(tx) }) {
-							ExpenseView(
-								title: tx.title,
-								transactionDate: tx.date.description,
-								amount: tx.amount,
-								category: tx.category
-							)
-						}
-						.listRowSeparator(.hidden)
-						.listRowInsets(listInsets)
-						.padding([.horizontal, .vertical], Spacing.m)
-						.background(
-							RoundedRectangle(cornerRadius: Radius.m)
-								.fill(Color.veryLightBackground)
-								.shadow(color: Color.lightDarkShadow, radius: 1, x: 0, y: 1)
-						)
-						.overlay(
-							RoundedRectangle(cornerRadius: Radius.m)
-								.stroke(Color(.systemGray5), lineWidth: BorderWidth.hairline)
-						)
-					}
-					.listStyle(.plain)
+					RecentTransactionsListView(
+						recentTransactions: recentTransactionsViewModel.recentTransactions,
+						action: navigateToExpenseDetails(_:)
+					)
 				}
 			}
 			.padding(Spacing.xs)
@@ -78,15 +59,6 @@ struct RecentExpensesView: View {
 }
 
 private extension RecentExpensesView {
-	var listInsets: EdgeInsets {
-		EdgeInsets(
-			top: Spacing.xs,
-			leading: 0,
-			bottom: Spacing.xs,
-			trailing: 0
-		)
-	}
-
 	func navigateToAddTrasaction() {
 		routerPath.path.append(.addNewTransaction)
 	}
