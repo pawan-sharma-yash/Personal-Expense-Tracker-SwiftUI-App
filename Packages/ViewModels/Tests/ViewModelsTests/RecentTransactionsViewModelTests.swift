@@ -3,7 +3,7 @@ import Testing
 
 @MainActor @Suite("Recent Tranctions View Model Tests")
 struct RecentTranctionsViewModel {
-	private let vm = RecentTransactionsViewModel()
+	private let vm = RecentExpensesViewModel()
 
 	@Test func `starts with daily transations`() {
 		#expect(vm.selectedDuration == .day)

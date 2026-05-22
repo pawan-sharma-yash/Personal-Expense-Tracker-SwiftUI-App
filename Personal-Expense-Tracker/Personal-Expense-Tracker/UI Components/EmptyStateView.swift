@@ -16,17 +16,19 @@ struct EmptyStateView: View {
 
 	var body: some View {
 		VStack(spacing: Spacing.xxs) {
-			Text(title)
-				.font(DS.Typography.headline)
-				.foregroundStyle(Color.textPrimary)
+			VStack(spacing: Spacing.xxxs) {
+				Text(title)
+					.font(DS.Typography.headline)
+					.foregroundStyle(Color.textPrimary)
 
-			Text(subtitle)
-				.font(DS.Typography.caption)
-				.foregroundStyle(Color.textSecondary)
+				Text(subtitle)
+					.font(DS.Typography.caption)
+					.foregroundStyle(Color.textSecondary)
+			}
 
 			Button(actionTitle, action: action)
-			.buttonStyle(DS.Components.PrimaryButtonStyle())
-			.padding(.top, Spacing.xxs)
+				.buttonStyle(DS.Components.PrimaryButtonStyle())
+				.padding(.top, Spacing.xxs)
 		}
 		.dsCard()
 	}

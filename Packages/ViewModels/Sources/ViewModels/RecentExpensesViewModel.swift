@@ -8,7 +8,7 @@
 import Observation
 
 @Observable @MainActor
-public final class RecentTransactionsViewModel {
+public final class RecentExpensesViewModel {
 	private let dataSource: ExpensesDataSourceProtocol = MockExpensesProvider()
 	public var selectedDuration = ExpensePeriod.day
 	public var recentTransactions = [Expense]()
@@ -32,7 +32,7 @@ public final class RecentTransactionsViewModel {
 
 // MARK: - Private
 
-private extension RecentTransactionsViewModel {
+private extension RecentExpensesViewModel {
 	/// Fetches and updates transactions for the currently selected duration.
 	/// Extracted so it can be re-called on duration changes.
 

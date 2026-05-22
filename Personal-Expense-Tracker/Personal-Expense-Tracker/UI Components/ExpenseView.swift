@@ -16,19 +16,19 @@ struct ExpenseView: View {
 	let category: ViewModels.ExpenseCategory
 
 	var body: some View {
-		HStack(spacing: DS.Metrics.Spacing.m) {
+		HStack(spacing: Spacing.m) {
 			// Icon
 			ZStack {
-				RoundedRectangle(cornerRadius: DS.Metrics.Radius.s)
+				RoundedRectangle(cornerRadius: Radius.s)
 					.fill(category.color)
 				Image(systemName: category.icon)
 					.foregroundColor(Color.black)
 					.font(.system(size: 20))
 			}
-			.frame(width: DS.Metrics.Control.height, height: DS.Metrics.Control.height)
+			.frame(width: Control.height, height: Control.height)
 
 			// Title + subtitle
-			VStack(alignment: .leading, spacing: DS.Metrics.Spacing.xxxxs) {
+			VStack(alignment: .leading, spacing: Spacing.xxxxs) {
 				Text(title)
 					.font(.headline)
 					.foregroundColor(.primary)
@@ -56,4 +56,10 @@ struct ExpenseView: View {
 		amount: 200,
 		category: .fun
 	)
+}
+
+private extension ExpenseView {
+	typealias Spacing = DS.Metrics.Spacing
+	typealias Control = DS.Metrics.Control
+	typealias Radius = DS.Metrics.Radius
 }
