@@ -9,7 +9,7 @@ import SwiftUI
 import ViewModels
 import DesignSystem
 
-struct RecentTransactionsListView: View {
+struct RecentExpensesListView: View {
 	let recentTransactions: [ViewModels.Expense]
 	let action: (ViewModels.Expense) -> Void
 
@@ -40,7 +40,7 @@ struct RecentTransactionsListView: View {
 	}
 }
 
-private extension RecentTransactionsListView {
+private extension RecentExpensesListView {
 	var listInsets: EdgeInsets {
 		EdgeInsets(
 			top: Spacing.xs,
@@ -51,7 +51,7 @@ private extension RecentTransactionsListView {
 	}
 }
 
-private extension RecentTransactionsListView {
+private extension RecentExpensesListView {
 	typealias Spacing = DS.Metrics.Spacing
 	typealias Radius = DS.Metrics.Radius
 	typealias BorderWidth = DS.Metrics.BorderWidth

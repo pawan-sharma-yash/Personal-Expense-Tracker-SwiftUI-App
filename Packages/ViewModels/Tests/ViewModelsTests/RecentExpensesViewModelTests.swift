@@ -2,8 +2,8 @@ import Testing
 @testable import ViewModels
 
 @MainActor @Suite("Recent Tranctions View Model Tests")
-struct RecentTranctionsViewModel {
-	private let vm = RecentTransactionsViewModel()
+struct RecentExpensesViewModelTests {
+	private let vm = RecentExpensesViewModel()
 
 	@Test func `starts with daily transations`() {
 		#expect(vm.selectedDuration == .day)

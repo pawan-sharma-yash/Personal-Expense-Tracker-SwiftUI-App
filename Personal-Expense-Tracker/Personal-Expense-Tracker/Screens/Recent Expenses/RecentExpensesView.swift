@@ -10,14 +10,14 @@ import ViewModels
 import DesignSystem
 
 struct RecentExpensesView: View {
-	@State private var recentTransactionsViewModel = RecentTransactionsViewModel()
+	@State private var recentTransactionsViewModel = RecentExpensesViewModel()
 	@Environment(RouterPath.self) private var routerPath
 
 	var body: some View {
 		@Bindable var routerPath = routerPath
 		NavigationStack(path: $routerPath.path) {
 			VStack {
-				Picker("Options", selection: $recentTransactionsViewModel.selectedDuration) {
+				Picker("Filter period", selection: $recentTransactionsViewModel.selectedDuration) {
 					ForEach(ExpensePeriod.allCases) { opt in
 						Text(opt.rawValue).tag(opt)
 					}
@@ -33,7 +33,7 @@ struct RecentExpensesView: View {
 					)
 					Spacer()
 				} else {
-					RecentTransactionsListView(
+					RecentExpensesListView(
 						recentTransactions: recentTransactionsViewModel.recentTransactions,
 						action: navigateToExpenseDetails(_:)
 					)
@@ -53,6 +53,8 @@ struct RecentExpensesView: View {
 								.foregroundColor(Color.accent)
 						}
 				}
+				.accessibilityLabel(Text(AccessibilityStrings.Label.addTransaction))
+				.accessibilityHint(Text(AccessibilityStrings.Hint.addTransaction))
 			}
 		}
 	}
