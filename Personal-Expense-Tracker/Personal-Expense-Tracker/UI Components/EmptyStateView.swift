@@ -25,10 +25,13 @@ struct EmptyStateView: View {
 					.font(DS.Typography.caption)
 					.foregroundStyle(Color.textSecondary)
 			}
+			.accessibilityElement(children: .combine)
 
 			Button(actionTitle, action: action)
 				.buttonStyle(DS.Components.PrimaryButtonStyle())
 				.padding(.top, Spacing.xxs)
+				.accessibilityLabel(Text(AccessibilityStrings.Label.emptyStateAction(actionTitle)))
+				.accessibilityHint(Text(AccessibilityStrings.Hint.emptyStateAction(actionTitle)))
 		}
 		.dsCard()
 	}

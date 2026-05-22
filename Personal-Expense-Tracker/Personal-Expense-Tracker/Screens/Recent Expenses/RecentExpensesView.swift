@@ -53,6 +53,8 @@ struct RecentExpensesView: View {
 								.foregroundColor(Color.accent)
 						}
 				}
+				.accessibilityLabel(Text(AccessibilityStrings.Label.addTransaction))
+				.accessibilityHint(Text(AccessibilityStrings.Hint.addTransaction))
 			}
 		}
 	}

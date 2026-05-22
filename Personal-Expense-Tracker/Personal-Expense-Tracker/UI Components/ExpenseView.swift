@@ -26,6 +26,7 @@ struct ExpenseView: View {
 					.font(.system(size: 20))
 			}
 			.frame(width: Control.height, height: Control.height)
+			.accessibilityHidden(true)
 
 			// Title + subtitle
 			VStack(alignment: .leading, spacing: Spacing.xxxxs) {
@@ -46,6 +47,13 @@ struct ExpenseView: View {
 				.font(.headline)
 				.foregroundColor(.red)
 		}
+		.accessibilityTransaction(
+			title: title,
+			category: category.title,
+			amount: amount,
+			currencyCode: "INR",
+			transactionDate: transactionDate
+		)
 	}
 }
 

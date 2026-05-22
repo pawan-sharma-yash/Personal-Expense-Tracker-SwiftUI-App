@@ -2,7 +2,7 @@ import Testing
 @testable import ViewModels
 
 @MainActor @Suite("Recent Tranctions View Model Tests")
-struct RecentTranctionsViewModel {
+struct RecentExpensesViewModelTests {
 	private let vm = RecentExpensesViewModel()
 
 	@Test func `starts with daily transations`() {
