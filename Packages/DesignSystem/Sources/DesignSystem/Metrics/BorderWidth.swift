@@ -14,3 +14,7 @@ extension DS.Metrics {
 		public static let thick: CGFloat = 3
 	}
 }
+
+extension DS {
+	public typealias BorderWidth = Metrics.BorderWidth
+}

@@ -7,26 +7,25 @@
 
 import SwiftUI
 
-private extension DS.Components {
-	typealias Spacing = DS.Metrics.Spacing
-	typealias Radius = DS.Metrics.Radius
-	typealias Control = DS.Metrics.Control
-	typealias BorderWidth = DS.Metrics.BorderWidth
-}
-
 extension DS.Components {
+	/// Primary CTA button — accent background, white foreground.
+	///
+	/// Handles `isPressed` and `isEnabled` (via `\.isEnabled` environment).
 	public struct PrimaryButtonStyle: ButtonStyle {
+		@Environment(\.isEnabled) private var isEnabled
+
 		public init() { }
 
 		public func makeBody(configuration: Configuration) -> some View {
 			configuration.label
 				.font(DS.Typography.body.weight(.semibold))
 				.foregroundStyle(.white)
-				.frame(maxWidth: .infinity, minHeight: Control.height)
-				.padding(.horizontal, Spacing.xs)
-				.background(Color.accent)
-				.clipShape(RoundedRectangle(cornerRadius: Radius.s, style: .continuous))
-				.opacity(configuration.isPressed ? 0.85 : 1.0)
+				.frame(maxWidth: .infinity, minHeight: DS.Control.height)
+				.padding(.horizontal, DS.Spacing.xs)
+				.background(isEnabled ? DS.Color.accent : DS.Color.border.opacity(0.6))
+				.clipShape(RoundedRectangle(cornerRadius: DS.Radius.button, style: .continuous))
+				.opacity(configuration.isPressed && isEnabled ? 0.85 : 1.0)
+				.animation(.easeOut(duration: 0.12), value: configuration.isPressed)
 		}
 	}
 }
