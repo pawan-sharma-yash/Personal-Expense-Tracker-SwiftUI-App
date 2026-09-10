@@ -15,28 +15,24 @@ struct EmptyStateView: View {
 	let action: () -> Void
 
 	var body: some View {
-		VStack(spacing: Spacing.xxs) {
-			VStack(spacing: Spacing.xxxs) {
+		VStack(spacing: DS.Spacing.xxs) {
+			VStack(spacing: DS.Spacing.xxxs) {
 				Text(title)
 					.font(DS.Typography.headline)
-					.foregroundStyle(Color.textPrimary)
+					.foregroundStyle(DS.Color.textPrimary)
 
 				Text(subtitle)
 					.font(DS.Typography.caption)
-					.foregroundStyle(Color.textSecondary)
+					.foregroundStyle(DS.Color.textSecondary)
 			}
 			.accessibilityElement(children: .combine)
 
 			Button(actionTitle, action: action)
 				.buttonStyle(DS.Components.PrimaryButtonStyle())
-				.padding(.top, Spacing.xxs)
+				.padding(.top, DS.Spacing.xxs)
 				.accessibilityLabel(Text(AccessibilityStrings.Label.emptyStateAction(actionTitle)))
 				.accessibilityHint(Text(AccessibilityStrings.Hint.emptyStateAction(actionTitle)))
 		}
 		.dsCard()
 	}
-}
-
-private extension EmptyStateView {
-	typealias Spacing = DS.Metrics.Spacing
 }

@@ -25,15 +25,15 @@ struct RecentExpensesListView: View {
 			}
 			.listRowSeparator(.hidden)
 			.listRowInsets(listInsets)
-			.padding([.horizontal, .vertical], Spacing.m)
+			.padding([.horizontal, .vertical], DS.Spacing.m)
 			.background(
-				RoundedRectangle(cornerRadius: Radius.m)
-					.fill(Color.veryLightBackground)
-					.shadow(color: Color.lightDarkShadow, radius: 1, x: 0, y: 1)
+				RoundedRectangle(cornerRadius: DS.Radius.m, style: .continuous)
+					.fill(DS.Color.surface)
 			)
+			.dsShadow(DS.Shadow.card)
 			.overlay(
-				RoundedRectangle(cornerRadius: Radius.m)
-					.stroke(Color(.systemGray5), lineWidth: BorderWidth.hairline)
+				RoundedRectangle(cornerRadius: DS.Radius.m, style: .continuous)
+					.stroke(DS.Color.border.opacity(0.7), lineWidth: DS.BorderWidth.hairline)
 			)
 		}
 		.listStyle(.plain)
@@ -43,16 +43,10 @@ struct RecentExpensesListView: View {
 private extension RecentExpensesListView {
 	var listInsets: EdgeInsets {
 		EdgeInsets(
-			top: Spacing.xs,
+			top: DS.Spacing.xs,
 			leading: 0,
-			bottom: Spacing.xs,
+			bottom: DS.Spacing.xs,
 			trailing: 0
 		)
 	}
-}
-
-private extension RecentExpensesListView {
-	typealias Spacing = DS.Metrics.Spacing
-	typealias Radius = DS.Metrics.Radius
-	typealias BorderWidth = DS.Metrics.BorderWidth
 }

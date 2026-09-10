@@ -11,11 +11,13 @@ public extension View {
 	///   - amount: Decimal amount
 	///   - currencyCode: ISO currency code, defaults to current locale's currency or "USD"
 	///   - transactionDate: Date description to include in label
-	func accessibilityTransaction(title: String,
-																category: String,
-																amount: Decimal,
-																currencyCode: String? = nil,
-																transactionDate: String) -> some View {
+	func accessibilityTransaction(
+		title: String,
+		category: String,
+		amount: Decimal,
+		currencyCode: String? = nil,
+		transactionDate: String
+	) -> some View {
 		// Prepare currency string using NumberFormatter for best accessibility/readability
 		let formatter = NumberFormatter()
 		formatter.numberStyle = .currency
@@ -27,7 +29,12 @@ public extension View {
 
 		let amountString = formatter.string(from: NSDecimalNumber(decimal: amount)) ?? "\(amount)"
 
-		let label = AccessibilityStrings.Label.transaction(title: title, category: category, amount: amountString, date: transactionDate)
+		let label = AccessibilityStrings.Label.transaction(
+			title: title,
+			category: category,
+			amount: amountString,
+			date: transactionDate
+		)
 
 		return self
 			.accessibilityElement(children: .combine)

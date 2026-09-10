@@ -7,35 +7,33 @@
 
 import SwiftUI
 
-private extension DS.Components {
-	typealias Spacing = DS.Metrics.Spacing
-	typealias Radius = DS.Metrics.Radius
-	typealias Control = DS.Metrics.Control
-	typealias BorderWidth = DS.Metrics.BorderWidth
-}
-
 extension DS.Components {
+	/// Secondary / ghost button — tinted foreground, subtle fill and hairline stroke.
 	public struct SecondaryButtonStyle: ButtonStyle {
 		let tint: SwiftUI.Color
+		@Environment(\.isEnabled) private var isEnabled
 
-		public init(tint: SwiftUI.Color = .accent) {
+		public init(tint: SwiftUI.Color = DS.Color.accent) {
 			self.tint = tint
 		}
 
 		public func makeBody(configuration: Configuration) -> some View {
+			let effectiveTint = isEnabled ? tint : DS.Color.border
 			configuration.label
 				.font(DS.Typography.body.weight(.semibold))
-				.foregroundStyle(tint)
-				.frame(maxWidth: .infinity, minHeight: Control.height)
-				.padding(.horizontal, Spacing.xs)
+				.foregroundStyle(effectiveTint)
+				.frame(maxWidth: .infinity, minHeight: DS.Control.height)
+				.padding(.horizontal, DS.Spacing.xs)
 				.background(
-					RoundedRectangle(cornerRadius: Radius.s, style: .continuous)
-						.fill(tint.opacity(configuration.isPressed ? 0.10 : 0.06))
+					RoundedRectangle(cornerRadius: DS.Radius.button, style: .continuous)
+						.fill(effectiveTint.opacity(configuration.isPressed ? 0.10 : 0.06))
 				)
 				.overlay(
-					RoundedRectangle(cornerRadius: Radius.s, style: .continuous)
-						.stroke(tint.opacity(0.55), lineWidth: BorderWidth.hairline)
+					RoundedRectangle(cornerRadius: DS.Radius.button, style: .continuous)
+						.stroke(effectiveTint.opacity(isEnabled ? 0.55 : 0.35), lineWidth: DS.BorderWidth.hairline)
 				)
+				.opacity(isEnabled ? 1 : 0.6)
+				.animation(.easeOut(duration: 0.12), value: configuration.isPressed)
 		}
 	}
 }

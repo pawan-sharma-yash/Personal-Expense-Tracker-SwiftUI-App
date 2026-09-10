@@ -16,27 +16,27 @@ struct ExpenseView: View {
 	let category: ViewModels.ExpenseCategory
 
 	var body: some View {
-		HStack(spacing: Spacing.m) {
+		HStack(spacing: DS.Spacing.m) {
 			// Icon
 			ZStack {
-				RoundedRectangle(cornerRadius: Radius.s)
+				RoundedRectangle(cornerRadius: DS.Radius.s)
 					.fill(category.color)
 				Image(systemName: category.icon)
-					.foregroundColor(Color.black)
+					.foregroundStyle(.white)
 					.font(.system(size: 20))
 			}
-			.frame(width: Control.height, height: Control.height)
+			.frame(width: DS.Control.height, height: DS.Control.height)
 			.accessibilityHidden(true)
 
 			// Title + subtitle
-			VStack(alignment: .leading, spacing: Spacing.xxxxs) {
+			VStack(alignment: .leading, spacing: DS.Spacing.xxxxs) {
 				Text(title)
-					.font(.headline)
-					.foregroundColor(.primary)
+					.font(DS.Typography.headline)
+					.foregroundStyle(DS.Color.textPrimary)
 
 				Text(transactionDate)
-					.font(.subheadline)
-					.foregroundColor(.secondary)
+					.font(DS.Typography.caption)
+					.foregroundStyle(DS.Color.textSecondary)
 					.lineLimit(1)
 			}
 
@@ -44,8 +44,8 @@ struct ExpenseView: View {
 
 			// Amount
 			Text(amount.formatted(.currency(code: "INR")))
-				.font(.headline)
-				.foregroundColor(.red)
+				.font(DS.Typography.headline)
+				.foregroundStyle(DS.Color.danger)
 		}
 		.accessibilityTransaction(
 			title: title,
@@ -66,8 +66,4 @@ struct ExpenseView: View {
 	)
 }
 
-private extension ExpenseView {
-	typealias Spacing = DS.Metrics.Spacing
-	typealias Control = DS.Metrics.Control
-	typealias Radius = DS.Metrics.Radius
-}
+

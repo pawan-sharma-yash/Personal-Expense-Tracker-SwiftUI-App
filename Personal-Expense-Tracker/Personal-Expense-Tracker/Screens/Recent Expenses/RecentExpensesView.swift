@@ -23,7 +23,7 @@ struct RecentExpensesView: View {
 					}
 				}
 				.pickerStyle(.segmented)
-				Spacer(minLength: Spacing.m)
+				Spacer(minLength: DS.Spacing.m)
 				if recentTransactionsViewModel.recentTransactions.isEmpty {
 					EmptyStateView(
 						title: recentTransactionsViewModel.emptyState.title,
@@ -39,18 +39,18 @@ struct RecentExpensesView: View {
 					)
 				}
 			}
-			.padding(Spacing.xs)
+			.padding(DS.Spacing.xs)
 			.withAppRouter()
 			.navigationTitle(recentTransactionsViewModel.screenTitle)
 			.toolbar {
 				Button(action: navigateToAddTrasaction) {
 					Circle()
-						.fill(Color.white)
+						.fill(DS.Color.background)
 						.overlay {
 							Image(systemName: "plus.circle.fill")
 								.font(.title2)
 								.fontWeight(.semibold)
-								.foregroundColor(Color.accent)
+								.foregroundStyle(DS.Color.accent)
 						}
 				}
 				.accessibilityLabel(Text(AccessibilityStrings.Label.addTransaction))
@@ -70,8 +70,4 @@ private extension RecentExpensesView {
 	}
 }
 
-private extension RecentExpensesView {
-	typealias Spacing = DS.Metrics.Spacing
-	typealias Radius = DS.Metrics.Radius
-	typealias BorderWidth = DS.Metrics.BorderWidth
-}
+
